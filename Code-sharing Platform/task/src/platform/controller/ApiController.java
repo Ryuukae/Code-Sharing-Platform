@@ -19,7 +19,7 @@ public class ApiController {
 		this.codeSnippetService = codeService;
 	}
 
-	@GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/code", produces = MediaType.APPLICATION_JSON_VALUE)
 	public CodeSnippet getApiCode() {
 		return codeSnippetService.getCodeSnippet();
 	}

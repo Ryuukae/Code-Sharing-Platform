@@ -15,88 +15,88 @@ import static org.hyperskill.hstest.testing.expect.json.JsonChecker.isObject;
 import static org.hyperskill.hstest.testing.expect.json.JsonChecker.isString;
 
 public class CodeSharingPlatformTest extends SpringTest {
-    public CodeSharingPlatformTest() {
-        super(CodeSharingPlatform.class);
-    }
+	public CodeSharingPlatformTest() {
+		super(CodeSharingPlatform.class);
+	}
 
-    String API_CODE = "/api/code";
-    String WEB_CODE = "/code";
+	String API_CODE = "/api/code";
+	String WEB_CODE = "/code";
 
-    static void checkStatusCode(HttpResponse resp, int status) {
-        if (resp.getStatusCode() != status) {
-            throw new WrongAnswer(
-                resp.getRequest().getMethod() + " " +
-                    resp.getRequest().getLocalUri() +
-                    " should respond with status code " + status + ", " +
-                    "responded: " + resp.getStatusCode() + "\n\n" +
-                    "Response body:\n\n" + resp.getContent()
-            );
-        }
-    }
+	static void checkStatusCode(HttpResponse resp, int status) {
+		if (resp.getStatusCode() != status) {
+			throw new WrongAnswer(
+					resp.getRequest().getMethod() + " " +
+							resp.getRequest().getLocalUri() +
+							" should respond with status code " + status + ", " +
+							"responded: " + resp.getStatusCode() + "\n\n" +
+							"Response body:\n\n" + resp.getContent()
+			);
+		}
+	}
 
-    @DynamicTestingMethod
-    public DynamicTesting[] dt = new DynamicTesting[] {
-        this::getApiCode,
-        this::checkApiCode,
-        this::checkWebCode,
-    };
+	@DynamicTestingMethod
+	public DynamicTesting[] dt = new DynamicTesting[]{
+			this::getApiCode,
+			this::checkApiCode,
+			this::checkWebCode,
+	};
 
-    String apiSnippet;
+	String apiSnippet;
 
-    private CheckResult getApiCode() {
-        HttpResponse resp = get(API_CODE).send();
-        checkStatusCode(resp, 200);
+	private CheckResult getApiCode() {
+		HttpResponse resp = get(API_CODE).send();
+		checkStatusCode(resp, 200);
 
-        expect(resp.getContent()).asJson().check(
-            isObject()
-                .value("code", isString(value -> {
-                    apiSnippet = value;
-                    return true;
-                }))
-        );
+		expect(resp.getContent()).asJson().check(
+				isObject()
+						.value("code", isString(value -> {
+							apiSnippet = value;
+							return true;
+						}))
+		);
 
-        return CheckResult.correct();
-    }
+		return CheckResult.correct();
+	}
 
-    private CheckResult checkApiCode() {
-        HttpResponse resp = get(API_CODE).send();
-        checkStatusCode(resp, 200);
+	private CheckResult checkApiCode() {
+		HttpResponse resp = get(API_CODE).send();
+		checkStatusCode(resp, 200);
 
-        expect(resp.getContent()).asJson().check(
-            isObject()
-                .value("code", isString(value -> apiSnippet.equals(value)))
-        );
+		expect(resp.getContent()).asJson().check(
+				isObject()
+						.value("code", isString(value -> apiSnippet.equals(value)))
+		);
 
-        return CheckResult.correct();
-    }
+		return CheckResult.correct();
+	}
 
-    private CheckResult checkWebCode() {
-        HttpResponse resp = get(WEB_CODE).send();
-        checkStatusCode(resp, 200);
+	private CheckResult checkWebCode() {
+		HttpResponse resp = get(WEB_CODE).send();
+		checkStatusCode(resp, 200);
 
-        String html = resp.getContent();
-        Document doc = Jsoup.parse(html);
+		String html = resp.getContent();
+		Document doc = Jsoup.parse(html);
 
-        if (!doc.title().equals("Code")) {
-            return CheckResult.wrong("GET " + WEB_CODE +
-                " should contain title \"Code\"");
-        }
+		if (!doc.title().equals("Code")) {
+			return CheckResult.wrong("GET " + WEB_CODE +
+					                         " should contain title \"Code\"");
+		}
 
-        Elements pre = doc.getElementsByTag("pre");
+		Elements pre = doc.getElementsByTag("pre");
 
-        if (pre.size() != 1) {
-            return CheckResult.wrong("GET " + WEB_CODE +
-                " should contain a single <pre> element, found: " + pre.size());
-        }
+		if (pre.size() != 1) {
+			return CheckResult.wrong("GET " + WEB_CODE +
+					                         " should contain a single <pre> element, found: " + pre.size());
+		}
 
-        Element tag = pre.get(0);
-        String webSnippet = tag.text();
+		Element tag = pre.get(0);
+		String webSnippet = tag.text();
 
-        if (!webSnippet.trim().equals(apiSnippet.trim())) {
-            return CheckResult.wrong("Web code snippet " +
-                "and api code snippet are different");
-        }
+		if (!webSnippet.trim().equals(apiSnippet.trim())) {
+			return CheckResult.wrong("Web code snippet " +
+					                         "and api code snippet are different");
+		}
 
-        return CheckResult.correct();
-    }
+		return CheckResult.correct();
+	}
 }
