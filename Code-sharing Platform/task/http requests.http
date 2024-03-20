@@ -1,3 +1,11 @@
+POST http://localhost:8081/api/updateCode
+Content-Type: application/json
+
+{
+  "code": "hey there"
+}
+
+###
 GET http://localhost:8081/code
 Accept: application/json
 
