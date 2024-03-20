@@ -1,27 +1,16 @@
-GET http://localhost:8081/api/code/1
-Accept: application/json
-
-###
-POST http://localhost:8081/api/code/new
+POST http://localhost:8081/api/updateCode
 Content-Type: application/json
 
 {
-  "code": "<newcode>"
+  "code": "hey there"
 }
 
 ###
-GET http://localhost:8081/api/code/latest
-Accept: application/json
-
-
-###
-GET http://localhost:8081/code/1
+GET http://localhost:8081/code
 Accept: application/json
 
 ###
-GET http://localhost:8081/code/new
+GET http://localhost:8081/api/code
 Accept: application/json
 
 ###
-GET http://localhost:8081/code/latest
-Accept: application/json
