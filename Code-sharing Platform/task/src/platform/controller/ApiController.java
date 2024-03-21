@@ -29,7 +29,7 @@ public class ApiController {
 		return cs;
 	}
 
-	@PostMapping("/updateCode")
+	@PostMapping("/code/new")
 	public void updateCodeSnippet(@RequestBody String newCode) {
 		logger.debug("Updating code snippet with: {}", newCode);
 		codeSnippetService.updateCodeSnippet(newCode);
