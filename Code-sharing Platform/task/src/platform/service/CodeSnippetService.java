@@ -11,15 +11,17 @@ public class CodeSnippetService {
 
 	private final CodeSnippet codeSnippet = new CodeSnippet(
 			"""
-					   public static void main(String[] args) {
-					   SpringApplication.run(CodeSharingPlatform.class, args);
-					}"""
+					public static void main(String[] args) {
+					    SpringApplication.run(CodeSharingPlatform.class, args);"""
 	);
 
 	public CodeSnippet getCodeSnippet() {
 		logger.debug("Getting the code snippet");
 		try {
-			return codeSnippet;
+			logger.debug("CodeSnippetService: getCodeSnippet method start");
+			CodeSnippet item = codeSnippet;
+			logger.debug("CodeSnippetService: getCodeSnippet method end");
+			return item;
 		} catch (Exception e) {
 			logger.error("Error while getting the code snippet", e);
 			throw e;
@@ -27,6 +29,15 @@ public class CodeSnippetService {
 	}
 
 	public void updateCodeSnippet(String newCode) {
-		codeSnippet.setCode(newCode);
+		logger.debug("CodeSnippetService: updateCodeSnippet method start");
+		logger.debug("Updating the code snippet with newCode: {}", newCode);
+		try {
+			codeSnippet.setCode(newCode);
+			logger.debug("Updated the code snippet successfully");
+		} catch (Exception e) {
+			logger.error("Error while updating the code snippet", e);
+			throw e;
+		}
+		logger.debug("CodeSnippetService: updateCodeSnippet method end");
 	}
 }
