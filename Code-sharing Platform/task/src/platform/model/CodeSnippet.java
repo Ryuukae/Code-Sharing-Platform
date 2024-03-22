@@ -1,5 +1,6 @@
 package platform.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,11 +10,11 @@ public class CodeSnippet {
 	private static final Logger logger = LoggerFactory.getLogger(CodeSnippet.class);
 
 	private String codeSnippet;
-	private LocalDateTime timestamp;
+	private LocalDateTime date;
 
 	public CodeSnippet(String codeSnippet) {
 		this.codeSnippet = codeSnippet;
-		this.timestamp = LocalDateTime.now();
+		this.date = LocalDateTime.now();
 		logger.debug("CodeSnippet object is created with initial code: {}", codeSnippet);
 	}
 
@@ -24,12 +25,13 @@ public class CodeSnippet {
 
 	public void setCode(String code) {
 		this.codeSnippet = code;
-		this.timestamp = LocalDateTime.now();
+		this.date = LocalDateTime.now();
 		logger.debug("setCode() is called. Code is updated to: {}", code);
 	}
 
+	@JsonProperty("date")
 	public LocalDateTime getTimestamp() {
-		logger.debug("getTimestamp() is called. Returning timestamp: {}", timestamp);
-		return timestamp;
+		logger.debug("getTimestamp() is called. Returning date: {}", date);
+		return date;
 	}
 }

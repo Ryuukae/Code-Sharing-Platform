@@ -22,7 +22,7 @@ public class ApiController {
 	}
 
 	@GetMapping(value = "/code", produces = MediaType.APPLICATION_JSON_VALUE)
-	public CodeSnippet getApiCode() {
+	public CodeSnippet getApiCodeSnippet() {
 		logger.debug("Getting API code...");
 		CodeSnippet cs = codeSnippetService.getCodeSnippet();
 		logger.debug("Retrieved API code: {}", cs.toString());

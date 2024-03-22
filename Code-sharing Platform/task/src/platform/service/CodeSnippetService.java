@@ -9,19 +9,15 @@ import platform.model.CodeSnippet;
 public class CodeSnippetService {
 	private static final Logger logger = LoggerFactory.getLogger(CodeSnippetService.class);
 
-	private final CodeSnippet codeSnippet = new CodeSnippet(
+	private final CodeSnippet codeSnippet = new CodeSnippet("""
+			public static void main(String[] args) { SpringApplication.run(CodeSharingPlatform.class, args); }
 			"""
-					public static void main(String[] args) {
-					    SpringApplication.run(CodeSharingPlatform.class, args);"""
 	);
 
 	public CodeSnippet getCodeSnippet() {
 		logger.debug("Getting the code snippet");
 		try {
-			logger.debug("CodeSnippetService: getCodeSnippet method start");
-			CodeSnippet item = codeSnippet;
-			logger.debug("CodeSnippetService: getCodeSnippet method end");
-			return item;
+			return codeSnippet;
 		} catch (Exception e) {
 			logger.error("Error while getting the code snippet", e);
 			throw e;

@@ -1,4 +1,4 @@
-POST http://localhost:8081/api/updateCode
+POST http://localhost:8081/api/code/new
 Content-Type: application/json
 
 "updatedCode"
