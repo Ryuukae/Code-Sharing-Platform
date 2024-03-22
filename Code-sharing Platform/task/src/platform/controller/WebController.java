@@ -28,11 +28,13 @@ public class WebController {
 	}
 
 	@GetMapping("/code")
-	public ResponseEntity<String> getCodePage() {
-		logger.debug("Entering getCodePage() method");
+	public ResponseEntity<String> displayCodeSnippet() {
+		logger.debug("Entering displayCodeSnippet() method");
 		CodeSnippet codeSnippet = codeSnippetService.getCodeSnippet();
 		logger.debug("Code snippet retrieved: {}", codeSnippet);
-		String html = "<html><head><title>Code</title></head><body><pre>" + codeSnippet.getCode() + "</pre></body></html>";
+		String html =
+				"<html><head><title>Code</title></head><body><pre id=\"code_snippet\">" + codeSnippet.getCode() + "</pre><span " +
+						"id=\"load_date\">" + codeSnippet.getTimestamp() + "</span></body></html>";
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.TEXT_HTML);
 		logger.debug("Setting the response headers");
