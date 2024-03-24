@@ -12,3 +12,5 @@ GET http://localhost:8081/api/code
 Accept: application/json
 
 ###
+GET http://localhost:8081/code/new
+Accept: application/json

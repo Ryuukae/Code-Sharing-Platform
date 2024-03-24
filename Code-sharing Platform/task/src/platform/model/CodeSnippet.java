@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 
 public class CodeSnippet {
 	private static final Logger logger = LoggerFactory.getLogger(CodeSnippet.class);
+
 	private String codeSnippet;
 
 	@JsonProperty("date")
