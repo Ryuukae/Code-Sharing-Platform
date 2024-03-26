@@ -10,6 +10,7 @@ import platform.model.CodeSnippet;
 import platform.service.CodeSnippetService;
 
 import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -33,7 +34,9 @@ public class ApiController {
 	}
 
 	@PostMapping(value = "/code/new", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> updateCodeSnippet(@RequestBody String newCode) {
+	public ResponseEntity<HashMap<Object, Object>> updateCodeSnippet(@RequestBody Map<String, String> requestBody) {
+		String newCode = requestBody.get("code");
+		logger.trace(newCode);
 		logger.debug("Updating code snippet with: {}", newCode);
 		codeSnippetService.updateCodeSnippet(newCode);
 		logger.info("Code snippet updated successfully");

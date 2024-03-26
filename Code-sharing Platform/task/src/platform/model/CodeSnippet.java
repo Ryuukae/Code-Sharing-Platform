@@ -23,7 +23,7 @@ public class CodeSnippet {
 
 	public String getCode() {
 		logger.debug("Getting code snippet: {}", this.codeSnippet);
-		return codeSnippet;
+		return this.codeSnippet;
 	}
 
 	public void setCode(String codeSnippet) {

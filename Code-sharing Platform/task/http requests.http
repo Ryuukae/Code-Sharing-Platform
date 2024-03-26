@@ -1,7 +1,7 @@
 POST http://localhost:8081/api/code/new
 Content-Type: application/json
 
-"updatedCode"
+"code: newCode"
 
 ###
 GET http://localhost:8081/code
