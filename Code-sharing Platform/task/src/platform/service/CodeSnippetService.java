@@ -10,8 +10,7 @@ public class CodeSnippetService {
 	private static final Logger logger = LoggerFactory.getLogger(CodeSnippetService.class);
 
 	private final CodeSnippet codeSnippet = new CodeSnippet("""
-			public static void main(String[] args) { SpringApplication.run(CodeSharingPlatform.class, args); }
-			"""
+			public static void main(String[] args) { SpringApplication.run(CodeSharingPlatform.class, args); }"""
 	);
 
 	public CodeSnippet getCodeSnippet() {
@@ -26,10 +25,14 @@ public class CodeSnippetService {
 
 	public void updateCodeSnippet(String newCode) {
 		logger.debug("CodeSnippetService: updateCodeSnippet method start");
-		logger.debug("Updating the code snippet with newCode: {}", newCode);
+		logger.debug("Updating code snippet with: {}", newCode);
 		try {
+			// Remove the leading and trailing double quotes if present
+			if (newCode.startsWith("\"") && newCode.endsWith("\"")) {
+				newCode = newCode.substring(1, newCode.length() - 1);
+			}
 			codeSnippet.setCode(newCode);
-			logger.debug("Updated the code snippet successfully");
+			logger.info("Code snippet updated successfully");
 		} catch (Exception e) {
 			logger.error("Error while updating the code snippet", e);
 			throw e;
