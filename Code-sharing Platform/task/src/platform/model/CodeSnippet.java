@@ -10,7 +10,9 @@ import java.time.LocalDateTime;
 public class CodeSnippet {
 	private static final Logger logger = LoggerFactory.getLogger(CodeSnippet.class);
 
+	private static int lastId = 0; // added static int
 	private String codeSnippet;
+	private int id;
 
 	@JsonProperty("date")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
@@ -18,7 +20,19 @@ public class CodeSnippet {
 
 	public CodeSnippet(String codeSnippet) {
 		this.codeSnippet = codeSnippet;
+		this.id = ++lastId; // use incremented lastId as id
 		this.timestamp = LocalDateTime.now();
+	}
+
+
+	public int getId() {
+		logger.debug("Getting ID: {}", this.id);
+		return this.id;
+	}
+
+	public void setId(int id) {
+		logger.debug("Setting ID: {}", id);
+		this.id = id;
 	}
 
 	public String getCode() {
