@@ -5,38 +5,38 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import platform.model.CodeSnippet;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class CodeSnippetService {
 	private static final Logger logger = LoggerFactory.getLogger(CodeSnippetService.class);
 
-	private final CodeSnippet codeSnippet = new CodeSnippet("""
-			public static void main(String[] args) { SpringApplication.run(CodeSharingPlatform.class, args); }"""
-	);
+	private final List<CodeSnippet> codeSnippets = new ArrayList<>();
 
-	public CodeSnippet getCodeSnippet() {
-		logger.debug("Getting the code snippet");
-		try {
-			return codeSnippet;
-		} catch (Exception e) {
-			logger.error("Error while getting the code snippet", e);
-			throw e;
-		}
+	public List<CodeSnippet> getAllCodeSnippets() {
+		logger.debug("Getting all code snippets");
+		return new ArrayList<>(codeSnippets); // Return a copy to avoid modification outside
 	}
 
-	public void updateCodeSnippet(String newCode) {
-		logger.debug("CodeSnippetService: updateCodeSnippet method start");
-		logger.debug("Updating code snippet with: {}", newCode);
-		try {
-			// Remove the leading and trailing double quotes if present
-			if (newCode.startsWith("\"") && newCode.endsWith("\"")) {
-				newCode = newCode.substring(1, newCode.length() - 1);
-			}
-			codeSnippet.setCode(newCode);
-			logger.info("Code snippet updated successfully");
-		} catch (Exception e) {
-			logger.error("Error while updating the code snippet", e);
-			throw e;
-		}
-		logger.debug("CodeSnippetService: updateCodeSnippet method end");
+	public CodeSnippet getCodeSnippetById(int id) {
+		return codeSnippets.stream()
+				       .filter(snippet -> snippet.getId() == id)
+				       .findFirst()
+				       .orElse(null); // Add error handling as necessary
 	}
+
+	public void addCodeSnippet(CodeSnippet snippet) {
+		codeSnippets.add(snippet);
+		logger.info("Added new code snippet with ID: {}", snippet.getId());
+	}
+
+	public CodeSnippet[] getLatestCodeSnippets() {
+		logger.debug("Getting latest code snippets");
+		return codeSnippets.stream()
+				       .sorted((s1, s2) -> s2.getTimestamp().compareTo(s1.getTimestamp()))
+				       .limit(10)
+				       .toArray(CodeSnippet[]::new);
+	}
+
 }
