@@ -25,21 +25,31 @@ public class ApiController {
 		logger.info("CodeSnippetService has been Autowired");
 	}
 
-	@GetMapping(value = "/code", produces = MediaType.APPLICATION_JSON_VALUE)
-	public CodeSnippet getApiCodeSnippet() {
-		logger.debug("Getting API code...");
-		CodeSnippet codeSnippet = codeSnippetService.getCodeSnippet();
-		logger.debug("Retrieved API code: {}", codeSnippet.toString());
-		return codeSnippet;
+	@GetMapping(value = "/code/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<CodeSnippet> getApiCodeSnippetById(@PathVariable int id) {
+		CodeSnippet snippet = codeSnippetService.getCodeSnippetById(id);
+		if (snippet == null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(snippet);
 	}
 
+	// In ApiController.java
 	@PostMapping(value = "/code/new", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<HashMap<Object, Object>> updateCodeSnippet(@RequestBody Map<String, String> requestBody) {
-		String newCode = requestBody.get("code");
-		logger.trace(newCode);
-		logger.debug("Updating code snippet with: {}", newCode);
-		codeSnippetService.updateCodeSnippet(newCode);
-		logger.info("Code snippet updated successfully");
-		return ResponseEntity.ok().body(new HashMap<>());
+	public ResponseEntity<Map<String, String>> createCodeSnippet(@RequestBody Map<Object, Object> requestBody) {
+		String newCode = (String) requestBody.get("code");
+		CodeSnippet newSnippet = new CodeSnippet(newCode);
+		codeSnippetService.addCodeSnippet(newSnippet);
+		Map<String, String> response = new HashMap<>();
+		response.put("id", String.valueOf(newSnippet.getId()));
+		return ResponseEntity.ok(response);
 	}
+
+	@GetMapping(value = "/code/latest", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<CodeSnippet[]> getLatestCodeSnippets() {
+		CodeSnippet[] snippets = codeSnippetService.getLatestCodeSnippets();
+		return ResponseEntity.ok(snippets);
+	}
+
+
 }
