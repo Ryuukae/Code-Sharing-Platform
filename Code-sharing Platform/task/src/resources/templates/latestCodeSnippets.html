@@ -5,9 +5,9 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
 <body th:class="body">
-<p id="latest_snippets" th:class="snippet" th:each="snippet : ${snippets}">
-    <span th:class="date" th:text="${snippet.timestamp}"></span>
+<pre id="latest_snippets" th:class="snippet" th:each="snippet : ${snippets}">
     <a th:href="@{'/code/' + ${snippet.id}}" th:class="snippet" th:text="${snippet.code}"></a>
-
+    <span th:class="date" th:text="${snippet.timestamp}"></span>
+ </pre>
 </body>
 </html>
