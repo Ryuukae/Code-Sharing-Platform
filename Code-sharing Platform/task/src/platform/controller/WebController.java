@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import platform.model.CodeSnippet;
 import platform.service.CodeSnippetService;
-import platform.util.DateUtils;
+
+import java.util.Arrays;
 
 @Controller
 @RequestMapping("/code")
@@ -33,7 +34,7 @@ public class WebController {
 			CodeSnippet snippet = codeSnippetService.getCodeSnippetById(id);
 
 			model.addAttribute("code", snippet.getCode());
-			model.addAttribute("timestamp", DateUtils.formatDate(snippet.getTimestamp()));
+			model.addAttribute("timestamp", snippet.getTimestamp());
 		} catch (Exception e) {
 			logger.error("Error getting code snippet by ID: {}", id, e);
 			return null; // Or
@@ -48,10 +49,31 @@ public class WebController {
 		return new ModelAndView("newCodeSnippet");
 	}
 
-	@GetMapping("/latest")
-	public ModelAndView displayLatestCodeSnippets(Model model) {
-		CodeSnippet[] snippets = codeSnippetService.getLatestCodeSnippets();
-		model.addAttribute("snippets", snippets);
-		return new ModelAndView("latestCodeSnippets");
+	@GetMapping(value = "/latest")
+	public ModelAndView displayLatestWebCodeSnippets(Model model) {
+		try {
+			CodeSnippet[] snippets = codeSnippetService.getLatestCodeSnippets();
+
+			if (snippets == null || snippets.length == 0) {
+				logger.warn("No code snippets found");
+				return new ModelAndView("errorPage");
+			}
+
+			String[] codes = Arrays.stream(snippets)
+					                 .map(CodeSnippet::getCode)
+					                 .toArray(String[]::new);
+
+			String[] timestamps = Arrays.stream(snippets)
+					                      .map(CodeSnippet::getTimestamp)
+					                      .toArray(String[]::new);
+
+			model.addAttribute("snippets", codes);
+			model.addAttribute("timestamps", timestamps);
+			return new ModelAndView("latestCodeSnippets");
+
+		} catch (Exception e) {
+			logger.error("Error while retrieving latest code snippets", e);
+			return new ModelAndView("errorPage");
+		}
 	}
 }

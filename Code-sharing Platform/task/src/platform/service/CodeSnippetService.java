@@ -31,12 +31,20 @@ public class CodeSnippetService {
 		logger.info("Added new code snippet with ID: {}", snippet.getId());
 	}
 
+	// In Service method
 	public CodeSnippet[] getLatestCodeSnippets() {
-		logger.debug("Getting latest code snippets");
-		return codeSnippets.stream()
-				       .sorted((s1, s2) -> s2.getTimestamp().compareTo(s1.getTimestamp()))
-				       .limit(10)
-				       .toArray(CodeSnippet[]::new);
+		try {
+			logger.debug("Getting latest code snippets");
+			return codeSnippets.stream()
+					       .sorted((s1, s2) -> s2.getTimestamp().compareTo(s1.getTimestamp()))
+					       .limit(10)
+					       .toArray(CodeSnippet[]::new);
+		} catch (NullPointerException e) {
+			logger.error("Failed to get latest code snippets due to null pointer", e);
+			return new CodeSnippet[ 0 ];
+		} catch (Exception e) {
+			logger.error("Failed to get latest code snippets for unknown reason", e);
+			return new CodeSnippet[ 0 ];
+		}
 	}
-
 }

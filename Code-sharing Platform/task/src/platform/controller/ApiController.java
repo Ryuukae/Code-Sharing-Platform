@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import platform.dto.CodeSnippetApiResponse;
 import platform.model.CodeSnippet;
 import platform.service.CodeSnippetService;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
@@ -48,11 +49,17 @@ public class ApiController {
 	}
 
 	@GetMapping(value = "/code/latest", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<CodeSnippetApiResponse[]> getLatestCodeSnippets() {
+	public ResponseEntity<List<Map<String, Object>>> getLatestApiCodeSnippets() {
 		CodeSnippet[] snippets = codeSnippetService.getLatestCodeSnippets();
-		CodeSnippetApiResponse[] response = Arrays.stream(snippets)
-				                                    .map(snippet -> new CodeSnippetApiResponse(snippet.getCode(), snippet.getTimestamp()))
-				                                    .toArray(CodeSnippetApiResponse[]::new);
+		List<Map<String, Object>> response = Arrays.stream(snippets)
+				                                     .filter(snippet -> snippet != null)
+				                                     .map(snippet -> {
+					                                     Map<String, Object> res = new HashMap<>();
+					                                     res.put("code", snippet.getCode());
+					                                     res.put("date", snippet.getTimestamp());
+					                                     return res;
+				                                     })
+				                                     .collect(Collectors.toList());
 		return ResponseEntity.ok(response);
 	}
 
