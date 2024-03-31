@@ -2,24 +2,22 @@ package platform.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.time.LocalDateTime;
-
 public class CodeSnippetApiResponse {
 	private final String code;
 
 	@JsonProperty("date")
-	private final LocalDateTime timeStamp;
+	private final String timestamp;
 
-	public CodeSnippetApiResponse(String code, LocalDateTime timeStamp) {
+	public CodeSnippetApiResponse(String code, String timestamp) {
 		this.code = code;
-		this.timeStamp = timeStamp;
+		this.timestamp = timestamp;
 	}
 
 	public String getCode() {
 		return this.code;
 	}
 
-	public LocalDateTime getTimeStamp() {
-		return this.timeStamp;
+	public String getTimeStamp() {
+		return this.timestamp;
 	}
 }

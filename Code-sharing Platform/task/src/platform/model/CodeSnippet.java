@@ -5,13 +5,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import platform.util.DateUtils;
 
 import java.time.LocalDateTime;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class CodeSnippet {
 	private static final Logger logger = LoggerFactory.getLogger(CodeSnippet.class);
 
-	private static int lastId = 0; // added static int
+	private static AtomicInteger lastId = new AtomicInteger(0);
+
 	private String codeSnippet;
 
 	@JsonIgnore
@@ -19,12 +22,12 @@ public class CodeSnippet {
 
 	@JsonProperty("date")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
-	private LocalDateTime timestamp;
+	private String timestamp;
 
 	public CodeSnippet(String codeSnippet) {
 		this.codeSnippet = codeSnippet;
-		this.id = ++lastId; // use incremented lastId as id
-		this.timestamp = LocalDateTime.now();
+		this.id = lastId.incrementAndGet();
+		this.timestamp = DateUtils.formatDate(LocalDateTime.now()); // Use DateUtils to format the date
 	}
 
 
@@ -46,10 +49,10 @@ public class CodeSnippet {
 	public void setCode(String codeSnippet) {
 		logger.debug("Setting code snippet: {}", codeSnippet);
 		this.codeSnippet = codeSnippet;
-		this.timestamp = LocalDateTime.now();
+		this.timestamp = DateUtils.formatDate(LocalDateTime.now()); // Use DateUtils to format the date
 	}
 
-	public LocalDateTime getTimestamp() {
+	public String getTimestamp() {
 		logger.debug("Getting timestamp: {}", this.timestamp);
 		return timestamp;
 	}
