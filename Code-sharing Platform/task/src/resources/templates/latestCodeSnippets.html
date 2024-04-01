@@ -1,13 +1,18 @@
-<html lang="en">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>Latest</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="/css/style.css"/>
+    <!-- Include CSS and other head elements -->
 </head>
 <body>
-<pre class="latest_snippets" th:each="snippet : ${snippets}">
-    <a th:href="@{'/code/' + ${snippet.code}}" th:class="snippet" th:text="${snippet.code}"></a> </pre>
-<span class="load_date" th:text="${snippet.date}"></span>
-
+<div>
+    <h2>Latest Code Snippets</h2>
+    <div th:each="snippet : ${snippets}">
+        <div>
+            <pre><span th:text="${snippet.code}">Code snippet</span></pre>
+            <p th:text="${snippet.timestamp}">Timestamp</p>
+        </div>
+    </div>
+</div>
 </body>
 </html>

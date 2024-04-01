@@ -59,16 +59,7 @@ public class WebController {
 				return new ModelAndView("errorPage");
 			}
 
-			String[] codes = Arrays.stream(snippets)
-					                 .map(CodeSnippet::getCode)
-					                 .toArray(String[]::new);
-
-			String[] timestamps = Arrays.stream(snippets)
-					                      .map(CodeSnippet::getTimestamp)
-					                      .toArray(String[]::new);
-
-			model.addAttribute("snippets", codes);
-			model.addAttribute("timestamps", timestamps);
+			model.addAttribute("snippets", Arrays.asList(snippets)); // Convert array to list for easier handling in Thymeleaf
 			return new ModelAndView("latestCodeSnippets");
 
 		} catch (Exception e) {
