@@ -9,10 +9,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import platform.dto.CodeSnippetDto;
 import platform.model.CodeSnippet;
 import platform.service.CodeSnippetService;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/code")
@@ -59,7 +62,15 @@ public class WebController {
 				return new ModelAndView("errorPage");
 			}
 
-			model.addAttribute("snippets", Arrays.asList(snippets)); // Convert array to list for easier handling in Thymeleaf
+			logger.debug("Snippets: {}", Arrays.toString(snippets));
+
+			List<CodeSnippetDto> snippetDtos = Arrays.stream(snippets)
+					                                   .map(snippet -> new CodeSnippetDto(snippet.getCode(), snippet.getTimestamp()))
+					                                   .collect(Collectors.toList());
+
+			logger.debug("SnippetDtos: {}", snippetDtos);
+
+			model.addAttribute("snippetDtos", snippetDtos);
 			return new ModelAndView("latestCodeSnippets");
 
 		} catch (Exception e) {

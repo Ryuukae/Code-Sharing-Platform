@@ -2,15 +2,49 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>Latest</title>
-    <!-- Include CSS and other head elements -->
+    <style>
+        .code-container {
+            box-sizing: border-box;
+            font-weight: 100;
+            font-size: 13px;
+            font-style: italic;
+            width: 100%;
+            padding: 10px;
+            color: #00ff0a;
+            background: #333;
+        }
+
+        body {
+            background: #333;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .code-text {
+            font-weight: 100;
+            padding: 1px;
+            color: #FFD700;
+        }
+
+        .code-container .text {
+            font-family: Baskerville;
+            font-style: normal;
+            font-weight: 100;
+            color: #FF6E6E;
+        }
+    </style>
 </head>
 <body>
 <div>
-    <h2>Latest Code Snippets</h2>
-    <div th:each="snippet : ${snippets}">
-        <div>
-            <pre><span th:text="${snippet.code}">Code snippet</span></pre>
-            <p th:text="${snippet.timestamp}">Timestamp</p>
+
+    <div th:each="snippetDto : ${snippetDtos}">
+        <p id="load_date" class="text" th:text="${snippetDto.getTimestamp()}">Date</p>
+        <div class="code-container">
+            <pre id="code_snippet" class="code-text">
+               <code><span th:text="${snippetDto.getCode()}">Code</span></code>
+            </pre>
         </div>
     </div>
 </div>

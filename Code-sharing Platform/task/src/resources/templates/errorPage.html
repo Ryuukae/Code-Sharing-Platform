@@ -12,9 +12,9 @@
 
 <script>
     window.onload = function () {
-        var urlParams = new URLSearchParams(window.location.search);
-        var errorMessage = urlParams.get('error');
-        var errorDetails = urlParams.get('details');
+        const urlParams = new URLSearchParams(window.location.search);
+        const errorMessage = urlParams.get('error');
+        const errorDetails = urlParams.get('details');
         document.getElementById('error-details').textContent = "Error: " + errorMessage + "\nDetails: " + errorDetails;
     };
 </script>
