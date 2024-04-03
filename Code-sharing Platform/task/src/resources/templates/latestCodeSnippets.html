@@ -40,7 +40,7 @@
 <div>
 
     <div th:each="snippetDto : ${snippetDtos}">
-        <p id="load_date" class="text" th:text="${snippetDto.getTimestamp()}">Date</p>
+        <p id="load_date" class="text" th:text="${snippetDto.getTimestamp()}">date</p>
         <div class="code-container">
             <pre id="code_snippet" class="code-text">
                <code><span th:text="${snippetDto.getCode()}">Code</span></code>
