@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
 <head>
     <title>Latest</title>
     <style>
@@ -32,14 +32,6 @@
             background: #222;
         }
 
-        /*body {*/
-        /*    background: #333;*/
-        /*    margin: 0;*/
-        /*    padding: 0;*/
-        /*    width: 100%;*/
-        /*    height: 100vh;*/
-        /*}*/
-
         .code-text {
             font-family: Baskerville, serif;
             font-size: 13px;
@@ -53,14 +45,19 @@
 <body>
 <div>
 
-    <div th:each="snippetDto : ${snippetDtos}">
-        <p id="load_date" class="date-text" th:text="${snippetDto.getTimestamp()}">date</p>
-        <div class="code-container">
-            <pre id="code_snippet" class="code-text">
-               <code><span th:text="${snippetDto.getCode()}">Code</span></code>
-            </pre>
-        </div>
-    </div>
+    <#list snippetDtos as snippetDto>
+
+
+        <tr>
+            <td>
+                <pre class="code-text"><code>${snippetDto.code}</code></pre>
+            </td>
+            <td><span class="date-text">${snippetDto.timestamp}</span></td>
+        </tr>
+
+
+    </#list>
 </div>
+
 </body>
 </html>

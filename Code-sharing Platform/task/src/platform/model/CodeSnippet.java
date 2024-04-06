@@ -15,19 +15,23 @@ public class CodeSnippet {
 
 	private static AtomicInteger lastId = new AtomicInteger(0);
 
+	@JsonProperty("code")
 	private String codeSnippet;
 
 	@JsonIgnore
 	private int id;
 
 	@JsonProperty("date")
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy HH:mm:ss")
 	private String timestamp;
 
 	public CodeSnippet(String codeSnippet) {
+		logger.debug("Creating new CodeSnippet instance");
 		this.codeSnippet = codeSnippet;
 		this.id = lastId.incrementAndGet();
+
 		this.timestamp = DateUtils.formatDate(LocalDateTime.now()); // Use DateUtils to format the date
+		logger.debug("CodeSnippet instance created with id {}, code snippet {}, timestamp {}", id, codeSnippet, timestamp);
 	}
 
 
@@ -36,24 +40,21 @@ public class CodeSnippet {
 		return this.id;
 	}
 
-	public void setId(int id) {
-		logger.debug("Setting ID: {}", id);
-		this.id = id;
-	}
 
 	public String getCode() {
 		logger.debug("Getting code snippet: {}", this.codeSnippet);
 		return this.codeSnippet;
 	}
 
-	public void setCode(String codeSnippet) {
-		logger.debug("Setting code snippet: {}", codeSnippet);
-		this.codeSnippet = codeSnippet;
-		this.timestamp = DateUtils.formatDate(LocalDateTime.now()); // Use DateUtils to format the date
-	}
 
 	public String getTimestamp() {
 		logger.debug("Getting timestamp: {}", this.timestamp);
 		return timestamp;
+	}
+
+	public void setTimestamp(String timestamp) {
+		logger.debug("Setting timestamp: {}", timestamp);
+		this.timestamp = timestamp;
+		logger.debug("Timestamp set to {}", this.timestamp);
 	}
 }

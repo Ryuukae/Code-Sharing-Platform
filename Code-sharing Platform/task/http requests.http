@@ -6,7 +6,7 @@ POST http://localhost:8081/api/code/new
 Content-Type: application/json
 
 {
-  "code": "newCode"
+  "code": "<newcode>"
 }
 
 ###

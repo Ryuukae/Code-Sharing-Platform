@@ -17,17 +17,26 @@ public class CodeSnippetService {
 
 	public List<CodeSnippet> getAllCodeSnippets() {
 		logger.debug("Getting all code snippets");
-		return new ArrayList<>(codeSnippets); // Return a copy to avoid modification outside
+		List<CodeSnippet> snippets = new ArrayList<>(codeSnippets);
+		logger.debug("Return copy of all code snippets: {}", snippets);
+		return snippets;
 	}
 
 	public CodeSnippet getCodeSnippetById(int id) {
-		return codeSnippets.stream()
-				       .filter(snippet -> snippet.getId() == id)
-				       .findFirst()
-				       .orElse(null); // Add error handling as necessary
+		logger.debug("Getting code snippet by ID: {}", id);
+		CodeSnippet snippet = codeSnippets.stream()
+				                      .filter(s -> {
+					                      logger.trace("Checking if snipper ID: {} equals to searching ID: {}", s.getId(), id);
+					                      return s.getId() == id;
+				                      })
+				                      .findFirst()
+				                      .orElse(null); // Add error handling as necessary
+		logger.debug("Code snippet found for ID {}: {}", id, snippet);
+		return snippet;
 	}
 
 	public void addCodeSnippet(CodeSnippet snippet) {
+		logger.debug("Adding a new code snippet: {}", snippet);
 		codeSnippets.add(snippet);
 		logger.info("Added new code snippet with ID: {}", snippet.getId());
 	}
@@ -36,10 +45,18 @@ public class CodeSnippetService {
 		try {
 			logger.debug("Getting latest code snippets");
 			CodeSnippet[] snippets = codeSnippets.stream()
-					                         .sorted((s1, s2) -> s2.getTimestamp().compareTo(s1.getTimestamp()))
+					                         .sorted((s1, s2) -> {
+						                         logger.trace("Comparing snippet timestamp: {} with {}", s1.getTimestamp(), s2.getTimestamp());
+						                         int timestampComparison = s1.getTimestamp().compareTo(s2.getTimestamp());
+						                         if (timestampComparison != 0) {
+							                         return timestampComparison;
+						                         } else {
+							                         return Integer.compare(s2.getId(), s1.getId());
+						                         }
+					                         })
 					                         .limit(Math.min(codeSnippets.size(), 10))
 					                         .toArray(CodeSnippet[]::new);
-			logger.debug("Latest snippets: {}", Arrays.toString(snippets));
+			logger.debug("Latest {} snippets: {}", snippets.length, Arrays.toString(snippets));
 			return snippets;
 		} catch (NullPointerException e) {
 			logger.error("Failed to get latest code snippets due to null pointer", e);
