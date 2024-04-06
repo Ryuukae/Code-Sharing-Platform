@@ -13,69 +13,82 @@ import platform.dto.CodeSnippetDto;
 import platform.model.CodeSnippet;
 import platform.service.CodeSnippetService;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Controller
-@RequestMapping("/code")
+@Controller  // Marks this class as a Spring MVC Controller
+@RequestMapping("/code")  // All mappings in this controller are relative to /code
 public class WebController {
 
 	private final CodeSnippetService codeSnippetService;
 
-	private static final Logger logger = LoggerFactory.getLogger(WebController.class);
+	private static final Logger logger = LoggerFactory.getLogger(WebController.class);  // Logger to log messages for this class
 
-	@Autowired
+	@Autowired  // Autowiring the service required to carry out controller operations
 	public WebController(CodeSnippetService codeSnippetService) {
 		this.codeSnippetService = codeSnippetService;
-		logger.info("WebController initialized.");
+		logger.info("WebController initialized.");  // Logging the initiation of controller
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/{id}")  // Maps HTTP GET /code/{id} to this method
 	public ModelAndView displayCodeSnippetById(@PathVariable int id, Model model) {
+		logger.info("Entered displayCodeSnippetById method");  // Logging the entry into the function
 		try {
-			CodeSnippet snippet = codeSnippetService.getCodeSnippetById(id);
+			CodeSnippet snippet = codeSnippetService.getCodeSnippetById(id);  // Fetching the code snippet by given id
 
-			model.addAttribute("code", snippet.getCode());
-			model.addAttribute("timestamp", snippet.getTimestamp());
+			logger.info("Fetched code snippet with properties: Code: {}, Timestamp: {}.", snippet.getCode(), snippet.getTimestamp()); // Logging the fetch result
+
+			model.addAttribute("code", snippet.getCode());  // Adding fetched code to model
+			model.addAttribute("timestamp", snippet.getTimestamp());  // Adding fetched timestamp to model
 		} catch (Exception e) {
 			logger.error("Error getting code snippet by ID: {}", id, e);
-			return null; // Or
-			// return new ModelAndView("errorPage");
+			return null; // Error handling - return null or return new ModelAndView("errorPage");
 		}
-		return new ModelAndView("codeSnippet");
+		logger.info("Exiting displayCodeSnippetById method");  // Logging the exit from the function
+		return new ModelAndView("codeSnippet");  // Return a render-able view as response
 	}
 
-	@GetMapping("/new")
+	@GetMapping("/new")  // Maps HTTP GET /code/new to this method
 	public ModelAndView displayNewCodeSnippetForm() {
-		// Return the HTML template file as a ModelAndView
+		logger.info("Entered displayNewCodeSnippetForm method");
+		// The below line returns a template for client to input a new code snippet.
+		logger.info("Exiting displayNewCodeSnippetForm method");
 		return new ModelAndView("newCodeSnippet");
 	}
 
-	@GetMapping(value = "/latest")
+	@GetMapping(value = "/latest")  // Maps HTTP GET /code/latest to this method
 	public ModelAndView displayLatestWebCodeSnippets(Model model) {
+		logger.info("Entered displayLatestWebCodeSnippets method");
 		try {
-			CodeSnippet[] snippets = codeSnippetService.getLatestCodeSnippets();
+			List<CodeSnippet> snippets = List.of(codeSnippetService.getLatestCodeSnippets());
 
-			if (snippets == null || snippets.length == 0) {
-				logger.warn("No code snippets found");
-				return new ModelAndView("errorPage");
+			if (snippets == null || snippets.isEmpty()) {  // Checking if any snippets were found
+				logger.warn("No code snippets found");  // Logging warning, if no snippets were found
+				return new ModelAndView("errorPage");  // Respond with error page on no snippets found
 			}
 
-			logger.debug("Snippets: {}", Arrays.toString(snippets));
+			snippets.forEach(snippet -> logger.info("Fetched code snippet with properties: Code: {}, Timestamp: {}.", snippet.getCode(), snippet.getTimestamp()));  // Log fetched snippets
 
-			List<CodeSnippetDto> snippetDtos = Arrays.stream(snippets)
+			logger.debug("Snippets: {}", snippets); // Log the collection of fetched snippets
+
+			// Converting the code snippets into a transportable data model
+			List<CodeSnippetDto> snippetDtos = snippets.stream()
 					                                   .map(snippet -> new CodeSnippetDto(snippet.getCode(), snippet.getTimestamp()))
 					                                   .collect(Collectors.toList());
 
-			logger.debug("SnippetDtos: {}", snippetDtos);
+			snippetDtos.forEach(snippetDto -> logger.info("Fetched code snippet DTO with properties: Code: {}, Timestamp: {}.",
+					snippetDto.getCode(), snippetDto.getTimestamp()));  // Logging the DTO's
 
-			model.addAttribute("snippetDtos", snippetDtos);
-			return new ModelAndView("latestCodeSnippets");
+			logger.debug("SnippetDtos: {}", snippetDtos);  // Log all the DTO's
+
+			model.addAttribute("snippetDtos", snippetDtos);  // Adding the list of DTO's to the model
+			return new ModelAndView("latestCodeSnippetsView");  // Return a render-able view as response
 
 		} catch (Exception e) {
-			logger.error("Error while retrieving latest code snippets", e);
-			return new ModelAndView("errorPage");
+			logger.error("Error while retrieving latest code snippets", e);  // Logging any exception that occurred
+			return new ModelAndView("errorPage");  // Respond with an error page on exception
+		} finally {
+			logger.info("Exiting displayLatestWebCodeSnippets method");  // Logging the exit from the function
 		}
 	}
 }
