@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error Page</title>
+</head>
+<body>
+<div id="error-content">
+    <p>Oops, something went wrong.</p>
+    <p id="error-details"></p>
+</div>
+
+<script>
+    window.onload = function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const errorMessage = urlParams.get('error');
+        const errorDetails = urlParams.get('details');
+        document.getElementById('error-details').textContent = "Error: " + errorMessage + "\nDetails: " + errorDetails;
+    };
+</script>
+</body>
+</html>
