@@ -5,9 +5,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import platform.util.DateUtils;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class CodeSnippet {
@@ -56,5 +56,11 @@ public class CodeSnippet {
 		logger.debug("Setting timestamp: {}", timestamp);
 		this.timestamp = timestamp;
 		logger.debug("Timestamp set to {}", this.timestamp);
+	}
+
+	static class DateUtils {
+		public static String formatDate(LocalDateTime date) {
+			return date.format(DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss"));
+		}
 	}
 }
