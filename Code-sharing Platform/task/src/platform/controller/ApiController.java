@@ -48,7 +48,7 @@ public class ApiController {
 		response.put("id", String.valueOf(newSnippet.getId()));  // Adding the created snippet's ID to the response map
 		logger.info("New CodeSnippet with id {} has been added. Code: {}, Date: {}",
 				newSnippet.getId(), newSnippet.getCode(), newSnippet.getTimestamp());  // Logging that the new snippet has been successfully created
-		return ResponseEntity.ok(response);  // Returning a HTTP 200 OK status along with the ID of the created snippet
+		return ResponseEntity.ok(response);  // Returning an HTTP 200 OK status along with the ID of the created snippet
 	}
 
 	@GetMapping("/api/code/latest")  // HTTP GET mapping for getting the latest code snippets

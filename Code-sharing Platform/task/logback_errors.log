@@ -1,0 +1,29 @@
+21:22:43.416 [Test worker] INFO  platform.CodeSharingPlatform - Starting CodeSharingPlatform using Java 17.0.10 on JANOS with PID 3164 (started by Ryuukae in I:\-J-A-N-O-S-\Ryuukae\IdeaProjects\HyperSkill\Code-sharing Platform\Code-sharing Platform\task)
+21:22:43.419 [Test worker] INFO  platform.CodeSharingPlatform - No active profile set, falling back to default profiles: default
+21:22:44.576 [Test worker] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+21:22:44.585 [Test worker] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+21:22:44.586 [Test worker] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+21:22:44.587 [Test worker] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
+21:22:44.588 [Test worker] INFO  o.a.c.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+21:22:44.589 [Test worker] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+21:22:44.589 [Test worker] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+21:22:44.593 [Test worker] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+21:22:44.675 [Test worker] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+21:22:44.675 [Test worker] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1216 ms
+21:22:44.825 [Test worker] INFO  platform.controller.ApiController - CodeSnippetService has been Autowired
+21:22:44.826 [Test worker] INFO  platform.controller.WebController - WebController initialized.
+21:22:45.331 [Test worker] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+21:22:45.355 [Test worker] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+21:22:45.369 [Test worker] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+21:22:45.385 [Test worker] INFO  platform.CodeSharingPlatform - Started CodeSharingPlatform in 2.283 seconds (JVM running for 3.027)
+21:22:45.729 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:22:45.729 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+21:22:45.730 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+21:22:45.753 [http-nio-8081-exec-1] INFO  platform.controller.WebController - Entered displayNewCodeSnippetForm method
+21:22:45.753 [http-nio-8081-exec-1] INFO  platform.controller.WebController - Exiting displayNewCodeSnippetForm method
+21:22:46.096 [http-nio-8081-exec-2] INFO  platform.service.CodeSnippetService - Added new code snippet with ID: 1
+21:22:46.097 [http-nio-8081-exec-2] INFO  platform.controller.ApiController - New CodeSnippet with id 1 has been added. Code: public static void ..., Date: 04-05-2024 21:22:46
+21:22:46.138 [http-nio-8081-exec-3] INFO  platform.controller.ApiController - CodeSnippet with id 1 has been fetched successfully. Code: public static void ..., Date: 04-05-2024 21:22:46
+21:22:46.170 [http-nio-8081-exec-4] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+21:22:46.171 [http-nio-8081-exec-4] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: public static void ..., Timestamp: 04-05-2024 21:22:46.
+21:22:46.171 [http-nio-8081-exec-4] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
