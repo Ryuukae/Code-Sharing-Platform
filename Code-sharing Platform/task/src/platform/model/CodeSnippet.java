@@ -6,24 +6,37 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@Entity
+@Table(name = "code_snippets")
 public class CodeSnippet {
 	private static final Logger logger = LoggerFactory.getLogger(CodeSnippet.class);
 
 	private static AtomicInteger lastId = new AtomicInteger(0);
 
 	@JsonProperty("code")
+	@Column(name = "code")
 	private String codeSnippet;
 
+	@Id
 	@JsonIgnore
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
 	@JsonProperty("date")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy HH:mm:ss")
+	@Column(name = "timestamp")
 	private String timestamp;
+
+	protected CodeSnippet() {
+		id = 0;
+		codeSnippet = null;
+		timestamp = null;
+	}
 
 	public CodeSnippet(String codeSnippet) {
 		logger.debug("Creating new CodeSnippet instance");
@@ -32,6 +45,10 @@ public class CodeSnippet {
 
 		this.timestamp = DateUtils.formatDate(LocalDateTime.now()); // Use DateUtils to format the date
 		logger.debug("CodeSnippet instance created with id {}, code snippet {}, timestamp {}", id, codeSnippet, timestamp);
+	}
+
+	public static void setLastId(AtomicInteger atomicInteger) {
+		lastId = atomicInteger;
 	}
 
 
