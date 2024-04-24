@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="us">
+<html lang="us">
 <head>
-    <title>Code Snippet</title>
+    <meta charset="UTF-8">
+    <title>Code</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
 <body>
-<h1>Code Snippet</h1>
-<pre th:text="${codeSnippet}"></pre>
+<pre id="code_snippet" th:text="${code}"></pre>
+<span id="load_date" th:text="${timestamp}"></span>
 </body>
 </html>

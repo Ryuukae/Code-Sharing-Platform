@@ -60,7 +60,7 @@ public class WebController {
 	public ModelAndView displayLatestWebCodeSnippets(Model model) {
 		logger.info("Entered displayLatestWebCodeSnippets method");
 		try {
-			List<CodeSnippet> snippets = List.of(codeSnippetService.getLatestCodeSnippets());
+			List<CodeSnippet> snippets = codeSnippetService.getLatest10CodeSnippets();
 
 			if (snippets == null || snippets.isEmpty()) {  // Checking if any snippets were found
 				logger.warn("No code snippets found");  // Logging warning, if no snippets were found
