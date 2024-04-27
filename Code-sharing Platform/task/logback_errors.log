@@ -27,3 +27,605 @@
 21:22:46.170 [http-nio-8081-exec-4] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
 21:22:46.171 [http-nio-8081-exec-4] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: public static void ..., Timestamp: 04-05-2024 21:22:46.
 21:22:46.171 [http-nio-8081-exec-4] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+17:53:59.766 [Test worker] INFO  platform.CodeSharingPlatform - Starting CodeSharingPlatform using Java 17.0.10 on JANOS with PID 20044 (started by Ryuukae in I:\-J-A-N-O-S-\Ryuukae\IdeaProjects\HyperSkill\Code-sharing Platform\Code-sharing Platform\task)
+17:53:59.769 [Test worker] INFO  platform.CodeSharingPlatform - No active profile set, falling back to default profiles: default
+17:54:00.657 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+17:54:00.718 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 52 ms. Found 1 JPA repository interfaces.
+17:54:01.473 [Test worker] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8082 (http)
+17:54:01.485 [Test worker] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+17:54:01.485 [Test worker] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+17:54:01.486 [Test worker] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
+17:54:01.488 [Test worker] INFO  o.a.c.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+17:54:01.488 [Test worker] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+17:54:01.488 [Test worker] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+17:54:01.493 [Test worker] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+17:54:01.612 [Test worker] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+17:54:01.613 [Test worker] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1802 ms
+17:54:01.837 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+17:54:02.062 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+17:54:02.075 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./CodeSnippetsDB'
+17:54:02.490 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+17:54:02.578 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+17:54:02.739 [Test worker] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+17:54:02.880 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+17:54:03.424 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+17:54:03.432 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+17:54:03.958 [Test worker] INFO  platform.controller.ApiController - CodeSnippetService has been Autowired
+17:54:03.962 [Test worker] INFO  platform.controller.WebController - WebController initialized.
+17:54:04.030 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+17:54:05.453 [Test worker] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+17:54:05.496 [Test worker] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+17:54:05.511 [Test worker] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8082 (http) with context path ''
+17:54:05.532 [Test worker] INFO  platform.CodeSharingPlatform - Started CodeSharingPlatform in 6.121 seconds (JVM running for 7.125)
+17:54:05.865 [http-nio-8082-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:54:05.866 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+17:54:05.867 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+17:54:05.892 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Entered displayNewCodeSnippetForm method
+17:54:05.892 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Exiting displayNewCodeSnippetForm method
+17:54:06.248 [http-nio-8082-exec-2] INFO  platform.controller.ApiController - New CodeSnippet with id 1 has been added. Code: public static void ..., Date: 04-24-2024 17:54:06
+17:54:06.291 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - CodeSnippet with id 1 has been fetched successfully. Code: public static void ..., Date: 04-24-2024 17:54:06
+17:54:06.322 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+17:54:06.323 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: public static void ..., Timestamp: 04-24-2024 17:54:06.
+17:54:06.323 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+17:54:06.479 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+17:54:06.483 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+17:54:06.484 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+20:17:05.722 [Test worker] INFO  platform.CodeSharingPlatform - Starting CodeSharingPlatform using Java 17.0.10 on JANOS with PID 72024 (started by Ryuukae in I:\-J-A-N-O-S-\Ryuukae\IdeaProjects\HyperSkill\Code-sharing Platform\Code-sharing Platform\task)
+20:17:05.725 [Test worker] INFO  platform.CodeSharingPlatform - No active profile set, falling back to default profiles: default
+20:17:06.481 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+20:17:06.534 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45 ms. Found 1 JPA repository interfaces.
+20:17:07.169 [Test worker] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8082 (http)
+20:17:07.183 [Test worker] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+20:17:07.183 [Test worker] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+20:17:07.184 [Test worker] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
+20:17:07.185 [Test worker] INFO  o.a.c.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+20:17:07.186 [Test worker] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+20:17:07.186 [Test worker] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+20:17:07.191 [Test worker] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+20:17:07.281 [Test worker] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+20:17:07.282 [Test worker] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1524 ms
+20:17:07.577 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20:17:07.838 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20:17:07.849 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./CodeSnippetsDB'
+20:17:08.191 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+20:17:08.254 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+20:17:08.406 [Test worker] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+20:17:08.542 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+20:17:08.976 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+20:17:08.985 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+20:17:09.489 [Test worker] INFO  platform.controller.ApiController - CodeSnippetService has been Autowired
+20:17:09.495 [Test worker] INFO  platform.controller.WebController - WebController initialized.
+20:17:09.581 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+20:17:10.850 [Test worker] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+20:17:10.914 [Test worker] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+20:17:10.928 [Test worker] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8082 (http) with context path ''
+20:17:10.945 [Test worker] INFO  platform.CodeSharingPlatform - Started CodeSharingPlatform in 5.511 seconds (JVM running for 6.426)
+20:17:11.288 [http-nio-8082-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+20:17:11.289 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+20:17:11.291 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+20:17:11.316 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Entered displayNewCodeSnippetForm method
+20:17:11.316 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Exiting displayNewCodeSnippetForm method
+20:17:11.659 [http-nio-8082-exec-2] INFO  platform.controller.ApiController - New CodeSnippet with id 1 has been added. Code: public static void ..., Date: 04-25-2024 20:17:11
+20:17:11.705 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - CodeSnippet with id 1 has been fetched successfully. Code: public static void ..., Date: 04-25-2024 20:17:11
+20:17:11.735 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:17:11.737 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: public static void ..., Timestamp: 04-25-2024 20:17:11.
+20:17:11.737 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:17:11.776 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 1, Code: public static void ..., Date: 04-25-2024 20:17:11
+20:17:11.776 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - Latest CodeSnippets fetched
+20:17:11.787 [http-nio-8082-exec-6] INFO  platform.controller.WebController - Entered displayLatestWebCodeSnippets method
+20:17:11.788 [http-nio-8082-exec-6] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: public static void ..., Timestamp: 04-25-2024 20:17:11.
+20:17:11.789 [http-nio-8082-exec-6] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: public static void ..., Timestamp: 04-25-2024 20:17:11.
+20:17:11.790 [http-nio-8082-exec-6] INFO  platform.controller.WebController - Exiting displayLatestWebCodeSnippets method
+20:17:11.855 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - New CodeSnippet with id 2 has been added. Code: class Code { ..., Date: 04-25-2024 20:17:11
+20:17:11.867 [http-nio-8082-exec-8] INFO  platform.controller.ApiController - CodeSnippet with id 1 has been fetched successfully. Code: public static void ..., Date: 04-25-2024 20:17:11
+20:17:11.880 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:17:11.883 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: public static void ..., Timestamp: 04-25-2024 20:17:11.
+20:17:11.884 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:17:11.897 [http-nio-8082-exec-10] INFO  platform.controller.ApiController - CodeSnippet with id 2 has been fetched successfully. Code: class Code { ..., Date: 04-25-2024 20:17:11
+20:17:11.907 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:17:11.909 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: class Code { ..., Timestamp: 04-25-2024 20:17:11.
+20:17:11.910 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:17:11.927 [http-nio-8082-exec-10] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 2, Code: class Code { ..., Date: 04-25-2024 20:17:11
+20:17:11.927 [http-nio-8082-exec-10] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 1, Code: public static void ..., Date: 04-25-2024 20:17:11
+20:17:11.927 [http-nio-8082-exec-10] INFO  platform.controller.ApiController - Latest CodeSnippets fetched
+20:17:11.935 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Entered displayLatestWebCodeSnippets method
+20:17:11.936 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: class Code { ..., Timestamp: 04-25-2024 20:17:11.
+20:17:11.936 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: public static void ..., Timestamp: 04-25-2024 20:17:11.
+20:17:11.937 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: class Code { ..., Timestamp: 04-25-2024 20:17:11.
+20:17:11.937 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: public static void ..., Timestamp: 04-25-2024 20:17:11.
+20:17:11.937 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Exiting displayLatestWebCodeSnippets method
+20:17:11.951 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - New CodeSnippet with id 3 has been added. Code: Snippet #3, Date: 04-25-2024 20:17:11
+20:17:11.962 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - New CodeSnippet with id 4 has been added. Code: Snippet #4, Date: 04-25-2024 20:17:11
+20:17:11.974 [http-nio-8082-exec-2] INFO  platform.controller.ApiController - New CodeSnippet with id 5 has been added. Code: Snippet #5, Date: 04-25-2024 20:17:11
+20:17:11.983 [http-nio-8082-exec-6] INFO  platform.controller.ApiController - New CodeSnippet with id 6 has been added. Code: Snippet #6, Date: 04-25-2024 20:17:11
+20:17:11.993 [http-nio-8082-exec-1] INFO  platform.controller.ApiController - New CodeSnippet with id 7 has been added. Code: Snippet #7, Date: 04-25-2024 20:17:11
+20:17:12.004 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - New CodeSnippet with id 8 has been added. Code: Snippet #8, Date: 04-25-2024 20:17:12
+20:17:12.019 [http-nio-8082-exec-6] INFO  platform.controller.ApiController - New CodeSnippet with id 9 has been added. Code: Snippet #9, Date: 04-25-2024 20:17:12
+20:17:12.042 [http-nio-8082-exec-1] INFO  platform.controller.ApiController - New CodeSnippet with id 10 has been added. Code: Snippet #10, Date: 04-25-2024 20:17:12
+20:17:12.080 [http-nio-8082-exec-9] INFO  platform.controller.ApiController - New CodeSnippet with id 11 has been added. Code: Snippet #11, Date: 04-25-2024 20:17:12
+20:17:12.096 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - New CodeSnippet with id 12 has been added. Code: Snippet #12, Date: 04-25-2024 20:17:12
+20:17:12.112 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - New CodeSnippet with id 13 has been added. Code: Snippet #13, Date: 04-25-2024 20:17:12
+20:17:12.128 [http-nio-8082-exec-2] INFO  platform.controller.ApiController - New CodeSnippet with id 14 has been added. Code: Snippet #14, Date: 04-25-2024 20:17:12
+20:17:12.141 [http-nio-8082-exec-8] INFO  platform.controller.ApiController - CodeSnippet with id 1 has been fetched successfully. Code: public static void ..., Date: 04-25-2024 20:17:11
+20:17:12.150 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:17:12.152 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: public static void ..., Timestamp: 04-25-2024 20:17:11.
+20:17:12.153 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:17:12.165 [http-nio-8082-exec-4] INFO  platform.controller.ApiController - CodeSnippet with id 2 has been fetched successfully. Code: class Code { ..., Date: 04-25-2024 20:17:11
+20:17:12.178 [http-nio-8082-exec-5] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:17:12.180 [http-nio-8082-exec-5] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: class Code { ..., Timestamp: 04-25-2024 20:17:11.
+20:17:12.181 [http-nio-8082-exec-5] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:17:12.196 [http-nio-8082-exec-6] INFO  platform.controller.ApiController - CodeSnippet with id 3 has been fetched successfully. Code: Snippet #3, Date: 04-25-2024 20:17:11
+20:17:12.208 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:17:12.210 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #3, Timestamp: 04-25-2024 20:17:11.
+20:17:12.210 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:17:12.224 [http-nio-8082-exec-9] INFO  platform.controller.ApiController - CodeSnippet with id 4 has been fetched successfully. Code: Snippet #4, Date: 04-25-2024 20:17:11
+20:17:12.235 [http-nio-8082-exec-7] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:17:12.237 [http-nio-8082-exec-7] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #4, Timestamp: 04-25-2024 20:17:11.
+20:17:12.238 [http-nio-8082-exec-7] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:17:12.252 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - CodeSnippet with id 5 has been fetched successfully. Code: Snippet #5, Date: 04-25-2024 20:17:11
+20:17:12.266 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:17:12.269 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #5, Timestamp: 04-25-2024 20:17:11.
+20:17:12.269 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:17:12.285 [http-nio-8082-exec-8] INFO  platform.controller.ApiController - CodeSnippet with id 6 has been fetched successfully. Code: Snippet #6, Date: 04-25-2024 20:17:11
+20:17:12.297 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:17:12.299 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #6, Timestamp: 04-25-2024 20:17:11.
+20:17:12.300 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:17:12.314 [http-nio-8082-exec-4] INFO  platform.controller.ApiController - CodeSnippet with id 7 has been fetched successfully. Code: Snippet #7, Date: 04-25-2024 20:17:11
+20:17:12.328 [http-nio-8082-exec-5] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:17:12.333 [http-nio-8082-exec-5] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #7, Timestamp: 04-25-2024 20:17:11.
+20:17:12.334 [http-nio-8082-exec-5] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:17:12.356 [http-nio-8082-exec-6] INFO  platform.controller.ApiController - CodeSnippet with id 8 has been fetched successfully. Code: Snippet #8, Date: 04-25-2024 20:17:12
+20:17:12.370 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:17:12.372 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #8, Timestamp: 04-25-2024 20:17:12.
+20:17:12.373 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:17:12.392 [http-nio-8082-exec-9] INFO  platform.controller.ApiController - CodeSnippet with id 9 has been fetched successfully. Code: Snippet #9, Date: 04-25-2024 20:17:12
+20:17:12.404 [http-nio-8082-exec-7] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:17:12.407 [http-nio-8082-exec-7] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #9, Timestamp: 04-25-2024 20:17:12.
+20:17:12.407 [http-nio-8082-exec-7] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:17:12.421 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - CodeSnippet with id 10 has been fetched successfully. Code: Snippet #10, Date: 04-25-2024 20:17:12
+20:17:12.434 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:17:12.438 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #10, Timestamp: 04-25-2024 20:17:12.
+20:17:12.438 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:17:12.452 [http-nio-8082-exec-8] INFO  platform.controller.ApiController - CodeSnippet with id 11 has been fetched successfully. Code: Snippet #11, Date: 04-25-2024 20:17:12
+20:17:12.461 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:17:12.463 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #11, Timestamp: 04-25-2024 20:17:12.
+20:17:12.464 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:17:12.481 [http-nio-8082-exec-4] INFO  platform.controller.ApiController - CodeSnippet with id 12 has been fetched successfully. Code: Snippet #12, Date: 04-25-2024 20:17:12
+20:17:12.491 [http-nio-8082-exec-5] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:17:12.493 [http-nio-8082-exec-5] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #12, Timestamp: 04-25-2024 20:17:12.
+20:17:12.493 [http-nio-8082-exec-5] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:17:12.504 [http-nio-8082-exec-6] INFO  platform.controller.ApiController - CodeSnippet with id 13 has been fetched successfully. Code: Snippet #13, Date: 04-25-2024 20:17:12
+20:17:12.515 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:17:12.517 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #13, Timestamp: 04-25-2024 20:17:12.
+20:17:12.518 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:17:12.531 [http-nio-8082-exec-9] INFO  platform.controller.ApiController - CodeSnippet with id 14 has been fetched successfully. Code: Snippet #14, Date: 04-25-2024 20:17:12
+20:17:12.541 [http-nio-8082-exec-7] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:17:12.543 [http-nio-8082-exec-7] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #14, Timestamp: 04-25-2024 20:17:12.
+20:17:12.543 [http-nio-8082-exec-7] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:17:12.556 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 14, Code: Snippet #14, Date: 04-25-2024 20:17:12
+20:17:12.556 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 13, Code: Snippet #13, Date: 04-25-2024 20:17:12
+20:17:12.557 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 12, Code: Snippet #12, Date: 04-25-2024 20:17:12
+20:17:12.557 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 11, Code: Snippet #11, Date: 04-25-2024 20:17:12
+20:17:12.557 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 10, Code: Snippet #10, Date: 04-25-2024 20:17:12
+20:17:12.557 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 9, Code: Snippet #9, Date: 04-25-2024 20:17:12
+20:17:12.558 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 8, Code: Snippet #8, Date: 04-25-2024 20:17:12
+20:17:12.558 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 7, Code: Snippet #7, Date: 04-25-2024 20:17:11
+20:17:12.558 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 6, Code: Snippet #6, Date: 04-25-2024 20:17:11
+20:17:12.559 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 5, Code: Snippet #5, Date: 04-25-2024 20:17:11
+20:17:12.559 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - Latest CodeSnippets fetched
+20:17:12.568 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Entered displayLatestWebCodeSnippets method
+20:17:12.571 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #14, Timestamp: 04-25-2024 20:17:12.
+20:17:12.571 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #13, Timestamp: 04-25-2024 20:17:12.
+20:17:12.571 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #12, Timestamp: 04-25-2024 20:17:12.
+20:17:12.571 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #11, Timestamp: 04-25-2024 20:17:12.
+20:17:12.571 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #10, Timestamp: 04-25-2024 20:17:12.
+20:17:12.571 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #9, Timestamp: 04-25-2024 20:17:12.
+20:17:12.571 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #8, Timestamp: 04-25-2024 20:17:12.
+20:17:12.572 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #7, Timestamp: 04-25-2024 20:17:11.
+20:17:12.572 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #6, Timestamp: 04-25-2024 20:17:11.
+20:17:12.572 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #5, Timestamp: 04-25-2024 20:17:11.
+20:17:12.572 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #14, Timestamp: 04-25-2024 20:17:12.
+20:17:12.572 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #13, Timestamp: 04-25-2024 20:17:12.
+20:17:12.572 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #12, Timestamp: 04-25-2024 20:17:12.
+20:17:12.572 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #11, Timestamp: 04-25-2024 20:17:12.
+20:17:12.572 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #10, Timestamp: 04-25-2024 20:17:12.
+20:17:12.572 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #9, Timestamp: 04-25-2024 20:17:12.
+20:17:12.572 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #8, Timestamp: 04-25-2024 20:17:12.
+20:17:12.573 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #7, Timestamp: 04-25-2024 20:17:11.
+20:17:12.573 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #6, Timestamp: 04-25-2024 20:17:11.
+20:17:12.573 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #5, Timestamp: 04-25-2024 20:17:11.
+20:17:12.573 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Exiting displayLatestWebCodeSnippets method
+20:17:12.739 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+20:17:12.742 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+20:17:12.745 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+20:18:55.329 [Test worker] INFO  platform.CodeSharingPlatform - Starting CodeSharingPlatform using Java 17.0.10 on JANOS with PID 95484 (started by Ryuukae in I:\-J-A-N-O-S-\Ryuukae\IdeaProjects\HyperSkill\Code-sharing Platform\Code-sharing Platform\task)
+20:18:55.332 [Test worker] INFO  platform.CodeSharingPlatform - No active profile set, falling back to default profiles: default
+20:18:56.111 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+20:18:56.175 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 52 ms. Found 1 JPA repository interfaces.
+20:18:56.817 [Test worker] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8082 (http)
+20:18:56.826 [Test worker] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+20:18:56.826 [Test worker] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+20:18:56.827 [Test worker] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
+20:18:56.828 [Test worker] INFO  o.a.c.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+20:18:56.828 [Test worker] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+20:18:56.828 [Test worker] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+20:18:56.832 [Test worker] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+20:18:56.933 [Test worker] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+20:18:56.933 [Test worker] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1568 ms
+20:18:57.168 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20:18:57.400 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20:18:57.407 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./CodeSnippetsDB'
+20:18:57.746 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+20:18:57.805 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+20:18:57.950 [Test worker] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+20:18:58.083 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+20:18:58.534 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+20:18:58.541 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+20:18:59.082 [Test worker] INFO  platform.controller.ApiController - CodeSnippetService has been Autowired
+20:18:59.085 [Test worker] INFO  platform.controller.WebController - WebController initialized.
+20:18:59.142 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+20:19:00.532 [Test worker] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+20:19:00.572 [Test worker] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+20:19:00.586 [Test worker] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8082 (http) with context path ''
+20:19:00.599 [Test worker] INFO  platform.CodeSharingPlatform - Started CodeSharingPlatform in 5.579 seconds (JVM running for 6.491)
+20:19:00.882 [http-nio-8082-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+20:19:00.883 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+20:19:00.884 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+20:19:00.912 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Entered displayNewCodeSnippetForm method
+20:19:00.912 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Exiting displayNewCodeSnippetForm method
+20:19:01.228 [http-nio-8082-exec-2] INFO  platform.controller.ApiController - New CodeSnippet with id 15 has been added. Code: public static void ..., Date: 04-25-2024 20:19:01
+20:19:01.265 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - CodeSnippet with id 15 has been fetched successfully. Code: public static void ..., Date: 04-25-2024 20:19:01
+20:19:01.291 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:19:01.293 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: public static void ..., Timestamp: 04-25-2024 20:19:01.
+20:19:01.293 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:19:01.327 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 15, Code: public static void ..., Date: 04-25-2024 20:19:01
+20:19:01.327 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 14, Code: Snippet #14, Date: 04-25-2024 20:17:12
+20:19:01.328 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 13, Code: Snippet #13, Date: 04-25-2024 20:17:12
+20:19:01.328 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 12, Code: Snippet #12, Date: 04-25-2024 20:17:12
+20:19:01.328 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 11, Code: Snippet #11, Date: 04-25-2024 20:17:12
+20:19:01.328 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 10, Code: Snippet #10, Date: 04-25-2024 20:17:12
+20:19:01.328 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 9, Code: Snippet #9, Date: 04-25-2024 20:17:12
+20:19:01.328 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 8, Code: Snippet #8, Date: 04-25-2024 20:17:12
+20:19:01.328 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 7, Code: Snippet #7, Date: 04-25-2024 20:17:11
+20:19:01.328 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 6, Code: Snippet #6, Date: 04-25-2024 20:17:11
+20:19:01.329 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - Latest CodeSnippets fetched
+20:19:01.441 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+20:19:01.443 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+20:19:01.445 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+20:23:35.248 [Test worker] INFO  platform.CodeSharingPlatform - Starting CodeSharingPlatform using Java 17.0.10 on JANOS with PID 10624 (started by Ryuukae in I:\-J-A-N-O-S-\Ryuukae\IdeaProjects\HyperSkill\Code-sharing Platform\Code-sharing Platform\task)
+20:23:35.252 [Test worker] INFO  platform.CodeSharingPlatform - No active profile set, falling back to default profiles: default
+20:23:36.081 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+20:23:36.139 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45 ms. Found 1 JPA repository interfaces.
+20:23:36.806 [Test worker] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8082 (http)
+20:23:36.815 [Test worker] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+20:23:36.815 [Test worker] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+20:23:36.816 [Test worker] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
+20:23:36.817 [Test worker] INFO  o.a.c.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+20:23:36.817 [Test worker] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+20:23:36.817 [Test worker] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+20:23:36.821 [Test worker] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+20:23:36.924 [Test worker] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+20:23:36.924 [Test worker] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1617 ms
+20:23:37.166 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20:23:37.429 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20:23:37.435 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./CodeSnippetsDB'
+20:23:37.753 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+20:23:37.827 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+20:23:37.991 [Test worker] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+20:23:38.146 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+20:23:38.663 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+20:23:38.669 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+20:23:39.212 [Test worker] INFO  platform.controller.ApiController - CodeSnippetService has been Autowired
+20:23:39.214 [Test worker] INFO  platform.controller.WebController - WebController initialized.
+20:23:39.276 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+20:23:40.838 [Test worker] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+20:23:40.888 [Test worker] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+20:23:40.907 [Test worker] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8082 (http) with context path ''
+20:23:40.920 [Test worker] INFO  platform.CodeSharingPlatform - Started CodeSharingPlatform in 5.981 seconds (JVM running for 6.911)
+20:23:41.239 [http-nio-8082-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+20:23:41.239 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+20:23:41.241 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+20:23:41.272 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Entered displayNewCodeSnippetForm method
+20:23:41.273 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Exiting displayNewCodeSnippetForm method
+20:23:41.696 [http-nio-8082-exec-2] INFO  platform.controller.ApiController - New CodeSnippet with id 1 has been added. Code: public static void ..., Date: 04-25-2024 20:23:41
+20:23:41.748 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - CodeSnippet with id 1 has been fetched successfully. Code: public static void ..., Date: 04-25-2024 20:23:41
+20:23:41.777 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:41.779 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: public static void ..., Timestamp: 04-25-2024 20:23:41.
+20:23:41.779 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:41.810 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 1, Code: public static void ..., Date: 04-25-2024 20:23:41
+20:23:41.811 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - Latest CodeSnippets fetched
+20:23:41.821 [http-nio-8082-exec-6] INFO  platform.controller.WebController - Entered displayLatestWebCodeSnippets method
+20:23:41.822 [http-nio-8082-exec-6] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: public static void ..., Timestamp: 04-25-2024 20:23:41.
+20:23:41.823 [http-nio-8082-exec-6] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: public static void ..., Timestamp: 04-25-2024 20:23:41.
+20:23:41.823 [http-nio-8082-exec-6] INFO  platform.controller.WebController - Exiting displayLatestWebCodeSnippets method
+20:23:41.890 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - New CodeSnippet with id 2 has been added. Code: class Code { ..., Date: 04-25-2024 20:23:41
+20:23:41.899 [http-nio-8082-exec-8] INFO  platform.controller.ApiController - CodeSnippet with id 1 has been fetched successfully. Code: public static void ..., Date: 04-25-2024 20:23:41
+20:23:41.907 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:41.908 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: public static void ..., Timestamp: 04-25-2024 20:23:41.
+20:23:41.909 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:41.919 [http-nio-8082-exec-10] INFO  platform.controller.ApiController - CodeSnippet with id 2 has been fetched successfully. Code: class Code { ..., Date: 04-25-2024 20:23:41
+20:23:41.926 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:41.928 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: class Code { ..., Timestamp: 04-25-2024 20:23:41.
+20:23:41.928 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:41.939 [http-nio-8082-exec-2] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 2, Code: class Code { ..., Date: 04-25-2024 20:23:41
+20:23:41.940 [http-nio-8082-exec-2] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 1, Code: public static void ..., Date: 04-25-2024 20:23:41
+20:23:41.940 [http-nio-8082-exec-2] INFO  platform.controller.ApiController - Latest CodeSnippets fetched
+20:23:41.947 [http-nio-8082-exec-3] INFO  platform.controller.WebController - Entered displayLatestWebCodeSnippets method
+20:23:41.948 [http-nio-8082-exec-3] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: class Code { ..., Timestamp: 04-25-2024 20:23:41.
+20:23:41.949 [http-nio-8082-exec-3] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: public static void ..., Timestamp: 04-25-2024 20:23:41.
+20:23:41.949 [http-nio-8082-exec-3] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: class Code { ..., Timestamp: 04-25-2024 20:23:41.
+20:23:41.949 [http-nio-8082-exec-3] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: public static void ..., Timestamp: 04-25-2024 20:23:41.
+20:23:41.949 [http-nio-8082-exec-3] INFO  platform.controller.WebController - Exiting displayLatestWebCodeSnippets method
+20:23:41.962 [http-nio-8082-exec-4] INFO  platform.controller.ApiController - New CodeSnippet with id 3 has been added. Code: Snippet #3, Date: 04-25-2024 20:23:41
+20:23:41.970 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - New CodeSnippet with id 4 has been added. Code: Snippet #4, Date: 04-25-2024 20:23:41
+20:23:41.979 [http-nio-8082-exec-6] INFO  platform.controller.ApiController - New CodeSnippet with id 5 has been added. Code: Snippet #5, Date: 04-25-2024 20:23:41
+20:23:41.989 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - New CodeSnippet with id 6 has been added. Code: Snippet #6, Date: 04-25-2024 20:23:41
+20:23:41.999 [http-nio-8082-exec-8] INFO  platform.controller.ApiController - New CodeSnippet with id 7 has been added. Code: Snippet #7, Date: 04-25-2024 20:23:41
+20:23:42.009 [http-nio-8082-exec-9] INFO  platform.controller.ApiController - New CodeSnippet with id 8 has been added. Code: Snippet #8, Date: 04-25-2024 20:23:42
+20:23:42.018 [http-nio-8082-exec-10] INFO  platform.controller.ApiController - New CodeSnippet with id 9 has been added. Code: Snippet #9, Date: 04-25-2024 20:23:42
+20:23:42.028 [http-nio-8082-exec-1] INFO  platform.controller.ApiController - New CodeSnippet with id 10 has been added. Code: Snippet #10, Date: 04-25-2024 20:23:42
+20:23:42.037 [http-nio-8082-exec-2] INFO  platform.controller.ApiController - New CodeSnippet with id 11 has been added. Code: Snippet #11, Date: 04-25-2024 20:23:42
+20:23:42.046 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - New CodeSnippet with id 12 has been added. Code: Snippet #12, Date: 04-25-2024 20:23:42
+20:23:42.054 [http-nio-8082-exec-4] INFO  platform.controller.ApiController - New CodeSnippet with id 13 has been added. Code: Snippet #13, Date: 04-25-2024 20:23:42
+20:23:42.061 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - New CodeSnippet with id 14 has been added. Code: Snippet #14, Date: 04-25-2024 20:23:42
+20:23:42.067 [http-nio-8082-exec-6] INFO  platform.controller.ApiController - CodeSnippet with id 1 has been fetched successfully. Code: public static void ..., Date: 04-25-2024 20:23:41
+20:23:42.074 [http-nio-8082-exec-7] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:42.076 [http-nio-8082-exec-7] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: public static void ..., Timestamp: 04-25-2024 20:23:41.
+20:23:42.076 [http-nio-8082-exec-7] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:42.088 [http-nio-8082-exec-2] INFO  platform.controller.ApiController - CodeSnippet with id 2 has been fetched successfully. Code: class Code { ..., Date: 04-25-2024 20:23:41
+20:23:42.095 [http-nio-8082-exec-5] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:42.096 [http-nio-8082-exec-5] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: class Code { ..., Timestamp: 04-25-2024 20:23:41.
+20:23:42.097 [http-nio-8082-exec-5] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:42.105 [http-nio-8082-exec-10] INFO  platform.controller.ApiController - CodeSnippet with id 3 has been fetched successfully. Code: Snippet #3, Date: 04-25-2024 20:23:41
+20:23:42.116 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:42.121 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #3, Timestamp: 04-25-2024 20:23:41.
+20:23:42.122 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:42.130 [http-nio-8082-exec-4] INFO  platform.controller.ApiController - CodeSnippet with id 4 has been fetched successfully. Code: Snippet #4, Date: 04-25-2024 20:23:41
+20:23:42.136 [http-nio-8082-exec-8] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:42.137 [http-nio-8082-exec-8] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #4, Timestamp: 04-25-2024 20:23:41.
+20:23:42.137 [http-nio-8082-exec-8] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:42.144 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - CodeSnippet with id 5 has been fetched successfully. Code: Snippet #5, Date: 04-25-2024 20:23:41
+20:23:42.149 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:42.151 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #5, Timestamp: 04-25-2024 20:23:41.
+20:23:42.151 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:42.159 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - CodeSnippet with id 6 has been fetched successfully. Code: Snippet #6, Date: 04-25-2024 20:23:41
+20:23:42.165 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:42.166 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #6, Timestamp: 04-25-2024 20:23:41.
+20:23:42.167 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:42.173 [http-nio-8082-exec-6] INFO  platform.controller.ApiController - CodeSnippet with id 7 has been fetched successfully. Code: Snippet #7, Date: 04-25-2024 20:23:41
+20:23:42.181 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:42.182 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #7, Timestamp: 04-25-2024 20:23:41.
+20:23:42.182 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:42.191 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - CodeSnippet with id 8 has been fetched successfully. Code: Snippet #8, Date: 04-25-2024 20:23:42
+20:23:42.196 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:42.198 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #8, Timestamp: 04-25-2024 20:23:42.
+20:23:42.198 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:42.206 [http-nio-8082-exec-4] INFO  platform.controller.ApiController - CodeSnippet with id 9 has been fetched successfully. Code: Snippet #9, Date: 04-25-2024 20:23:42
+20:23:42.213 [http-nio-8082-exec-8] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:42.214 [http-nio-8082-exec-8] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #9, Timestamp: 04-25-2024 20:23:42.
+20:23:42.214 [http-nio-8082-exec-8] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:42.220 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - CodeSnippet with id 10 has been fetched successfully. Code: Snippet #10, Date: 04-25-2024 20:23:42
+20:23:42.226 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:42.227 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #10, Timestamp: 04-25-2024 20:23:42.
+20:23:42.227 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:42.235 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - CodeSnippet with id 11 has been fetched successfully. Code: Snippet #11, Date: 04-25-2024 20:23:42
+20:23:42.241 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:42.242 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #11, Timestamp: 04-25-2024 20:23:42.
+20:23:42.243 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:42.249 [http-nio-8082-exec-6] INFO  platform.controller.ApiController - CodeSnippet with id 12 has been fetched successfully. Code: Snippet #12, Date: 04-25-2024 20:23:42
+20:23:42.255 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:42.256 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #12, Timestamp: 04-25-2024 20:23:42.
+20:23:42.256 [http-nio-8082-exec-1] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:42.262 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - CodeSnippet with id 13 has been fetched successfully. Code: Snippet #13, Date: 04-25-2024 20:23:42
+20:23:42.268 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:42.269 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #13, Timestamp: 04-25-2024 20:23:42.
+20:23:42.269 [http-nio-8082-exec-9] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:42.277 [http-nio-8082-exec-4] INFO  platform.controller.ApiController - CodeSnippet with id 14 has been fetched successfully. Code: Snippet #14, Date: 04-25-2024 20:23:42
+20:23:42.284 [http-nio-8082-exec-8] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:42.285 [http-nio-8082-exec-8] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #14, Timestamp: 04-25-2024 20:23:42.
+20:23:42.285 [http-nio-8082-exec-8] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:42.294 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 14, Code: Snippet #14, Date: 04-25-2024 20:23:42
+20:23:42.294 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 13, Code: Snippet #13, Date: 04-25-2024 20:23:42
+20:23:42.294 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 12, Code: Snippet #12, Date: 04-25-2024 20:23:42
+20:23:42.294 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 11, Code: Snippet #11, Date: 04-25-2024 20:23:42
+20:23:42.294 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 10, Code: Snippet #10, Date: 04-25-2024 20:23:42
+20:23:42.294 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 9, Code: Snippet #9, Date: 04-25-2024 20:23:42
+20:23:42.294 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 8, Code: Snippet #8, Date: 04-25-2024 20:23:42
+20:23:42.294 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 7, Code: Snippet #7, Date: 04-25-2024 20:23:41
+20:23:42.294 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 6, Code: Snippet #6, Date: 04-25-2024 20:23:41
+20:23:42.294 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 5, Code: Snippet #5, Date: 04-25-2024 20:23:41
+20:23:42.294 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - Latest CodeSnippets fetched
+20:23:42.301 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Entered displayLatestWebCodeSnippets method
+20:23:42.302 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #14, Timestamp: 04-25-2024 20:23:42.
+20:23:42.303 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #13, Timestamp: 04-25-2024 20:23:42.
+20:23:42.303 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #12, Timestamp: 04-25-2024 20:23:42.
+20:23:42.303 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #11, Timestamp: 04-25-2024 20:23:42.
+20:23:42.303 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #10, Timestamp: 04-25-2024 20:23:42.
+20:23:42.303 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #9, Timestamp: 04-25-2024 20:23:42.
+20:23:42.303 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #8, Timestamp: 04-25-2024 20:23:42.
+20:23:42.303 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #7, Timestamp: 04-25-2024 20:23:41.
+20:23:42.303 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #6, Timestamp: 04-25-2024 20:23:41.
+20:23:42.303 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #5, Timestamp: 04-25-2024 20:23:41.
+20:23:42.303 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #14, Timestamp: 04-25-2024 20:23:42.
+20:23:42.303 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #13, Timestamp: 04-25-2024 20:23:42.
+20:23:42.303 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #12, Timestamp: 04-25-2024 20:23:42.
+20:23:42.303 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #11, Timestamp: 04-25-2024 20:23:42.
+20:23:42.303 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #10, Timestamp: 04-25-2024 20:23:42.
+20:23:42.304 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #9, Timestamp: 04-25-2024 20:23:42.
+20:23:42.304 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #8, Timestamp: 04-25-2024 20:23:42.
+20:23:42.304 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #7, Timestamp: 04-25-2024 20:23:41.
+20:23:42.304 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #6, Timestamp: 04-25-2024 20:23:41.
+20:23:42.304 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #5, Timestamp: 04-25-2024 20:23:41.
+20:23:42.304 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Exiting displayLatestWebCodeSnippets method
+20:23:42.856 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+20:23:42.858 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+20:23:42.876 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+20:23:53.374 [Test worker] INFO  platform.CodeSharingPlatform - Starting CodeSharingPlatform using Java 17.0.10 on JANOS with PID 10624 (started by Ryuukae in I:\-J-A-N-O-S-\Ryuukae\IdeaProjects\HyperSkill\Code-sharing Platform\Code-sharing Platform\task)
+20:23:53.374 [Test worker] INFO  platform.CodeSharingPlatform - No active profile set, falling back to default profiles: default
+20:23:53.578 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+20:23:53.591 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 1 JPA repository interfaces.
+20:23:53.690 [Test worker] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8082 (http)
+20:23:53.690 [Test worker] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+20:23:53.691 [Test worker] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+20:23:53.691 [Test worker] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54]
+20:23:53.692 [Test worker] INFO  o.a.c.core.AprLifecycleListener - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+20:23:53.692 [Test worker] INFO  o.a.c.core.AprLifecycleListener - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+20:23:53.692 [Test worker] INFO  o.a.c.core.AprLifecycleListener - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+20:23:53.693 [Test worker] INFO  o.a.c.core.AprLifecycleListener - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+20:23:53.721 [Test worker] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+20:23:53.721 [Test worker] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 343 ms
+20:23:53.828 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+20:23:53.843 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+20:23:53.843 [Test worker] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./CodeSnippetsDB'
+20:23:53.989 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+20:23:53.995 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+20:23:54.014 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+20:23:54.014 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+20:23:54.079 [Test worker] INFO  platform.controller.ApiController - CodeSnippetService has been Autowired
+20:23:54.081 [Test worker] INFO  platform.controller.WebController - WebController initialized.
+20:23:54.121 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+20:23:54.671 [Test worker] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+20:23:54.693 [Test worker] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+20:23:54.696 [Test worker] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8082 (http) with context path ''
+20:23:54.700 [Test worker] INFO  platform.CodeSharingPlatform - Started CodeSharingPlatform in 1.35 seconds (JVM running for 20.691)
+20:23:54.704 [http-nio-8082-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+20:23:54.705 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+20:23:54.707 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+20:23:54.711 [http-nio-8082-exec-1] INFO  platform.controller.ApiController - CodeSnippet with id 1 has been fetched successfully. Code: public static void ..., Date: 04-25-2024 20:23:41
+20:23:54.718 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:54.719 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: public static void ..., Timestamp: 04-25-2024 20:23:41.
+20:23:54.719 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:54.746 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - CodeSnippet with id 2 has been fetched successfully. Code: class Code { ..., Date: 04-25-2024 20:23:41
+20:23:54.751 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:54.752 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: class Code { ..., Timestamp: 04-25-2024 20:23:41.
+20:23:54.752 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:54.760 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - CodeSnippet with id 3 has been fetched successfully. Code: Snippet #3, Date: 04-25-2024 20:23:41
+20:23:54.765 [http-nio-8082-exec-6] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:54.766 [http-nio-8082-exec-6] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #3, Timestamp: 04-25-2024 20:23:41.
+20:23:54.766 [http-nio-8082-exec-6] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:54.775 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - CodeSnippet with id 4 has been fetched successfully. Code: Snippet #4, Date: 04-25-2024 20:23:41
+20:23:54.781 [http-nio-8082-exec-8] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:54.782 [http-nio-8082-exec-8] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #4, Timestamp: 04-25-2024 20:23:41.
+20:23:54.782 [http-nio-8082-exec-8] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:54.790 [http-nio-8082-exec-9] INFO  platform.controller.ApiController - CodeSnippet with id 5 has been fetched successfully. Code: Snippet #5, Date: 04-25-2024 20:23:41
+20:23:54.797 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:54.798 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #5, Timestamp: 04-25-2024 20:23:41.
+20:23:54.798 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:54.806 [http-nio-8082-exec-1] INFO  platform.controller.ApiController - CodeSnippet with id 6 has been fetched successfully. Code: Snippet #6, Date: 04-25-2024 20:23:41
+20:23:54.811 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:54.812 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #6, Timestamp: 04-25-2024 20:23:41.
+20:23:54.812 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:54.819 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - CodeSnippet with id 7 has been fetched successfully. Code: Snippet #7, Date: 04-25-2024 20:23:41
+20:23:54.826 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:54.827 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #7, Timestamp: 04-25-2024 20:23:41.
+20:23:54.827 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:54.836 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - CodeSnippet with id 8 has been fetched successfully. Code: Snippet #8, Date: 04-25-2024 20:23:42
+20:23:54.842 [http-nio-8082-exec-6] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:54.843 [http-nio-8082-exec-6] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #8, Timestamp: 04-25-2024 20:23:42.
+20:23:54.843 [http-nio-8082-exec-6] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:54.851 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - CodeSnippet with id 9 has been fetched successfully. Code: Snippet #9, Date: 04-25-2024 20:23:42
+20:23:54.859 [http-nio-8082-exec-8] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:54.861 [http-nio-8082-exec-8] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #9, Timestamp: 04-25-2024 20:23:42.
+20:23:54.861 [http-nio-8082-exec-8] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:54.871 [http-nio-8082-exec-9] INFO  platform.controller.ApiController - CodeSnippet with id 10 has been fetched successfully. Code: Snippet #10, Date: 04-25-2024 20:23:42
+20:23:54.880 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:54.881 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #10, Timestamp: 04-25-2024 20:23:42.
+20:23:54.882 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:54.891 [http-nio-8082-exec-1] INFO  platform.controller.ApiController - CodeSnippet with id 11 has been fetched successfully. Code: Snippet #11, Date: 04-25-2024 20:23:42
+20:23:54.898 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:54.900 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #11, Timestamp: 04-25-2024 20:23:42.
+20:23:54.900 [http-nio-8082-exec-2] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:54.908 [http-nio-8082-exec-3] INFO  platform.controller.ApiController - CodeSnippet with id 12 has been fetched successfully. Code: Snippet #12, Date: 04-25-2024 20:23:42
+20:23:54.914 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:54.916 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #12, Timestamp: 04-25-2024 20:23:42.
+20:23:54.916 [http-nio-8082-exec-4] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:54.925 [http-nio-8082-exec-5] INFO  platform.controller.ApiController - CodeSnippet with id 13 has been fetched successfully. Code: Snippet #13, Date: 04-25-2024 20:23:42
+20:23:54.930 [http-nio-8082-exec-6] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:54.931 [http-nio-8082-exec-6] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #13, Timestamp: 04-25-2024 20:23:42.
+20:23:54.932 [http-nio-8082-exec-6] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:54.938 [http-nio-8082-exec-7] INFO  platform.controller.ApiController - CodeSnippet with id 14 has been fetched successfully. Code: Snippet #14, Date: 04-25-2024 20:23:42
+20:23:54.943 [http-nio-8082-exec-8] INFO  platform.controller.WebController - Entered displayCodeSnippetById method
+20:23:54.944 [http-nio-8082-exec-8] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #14, Timestamp: 04-25-2024 20:23:42.
+20:23:54.945 [http-nio-8082-exec-8] INFO  platform.controller.WebController - Exiting displayCodeSnippetById method
+20:23:54.952 [http-nio-8082-exec-9] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 14, Code: Snippet #14, Date: 04-25-2024 20:23:42
+20:23:54.952 [http-nio-8082-exec-9] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 13, Code: Snippet #13, Date: 04-25-2024 20:23:42
+20:23:54.952 [http-nio-8082-exec-9] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 12, Code: Snippet #12, Date: 04-25-2024 20:23:42
+20:23:54.952 [http-nio-8082-exec-9] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 11, Code: Snippet #11, Date: 04-25-2024 20:23:42
+20:23:54.952 [http-nio-8082-exec-9] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 10, Code: Snippet #10, Date: 04-25-2024 20:23:42
+20:23:54.952 [http-nio-8082-exec-9] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 9, Code: Snippet #9, Date: 04-25-2024 20:23:42
+20:23:54.952 [http-nio-8082-exec-9] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 8, Code: Snippet #8, Date: 04-25-2024 20:23:42
+20:23:54.952 [http-nio-8082-exec-9] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 7, Code: Snippet #7, Date: 04-25-2024 20:23:41
+20:23:54.952 [http-nio-8082-exec-9] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 6, Code: Snippet #6, Date: 04-25-2024 20:23:41
+20:23:54.952 [http-nio-8082-exec-9] INFO  platform.controller.ApiController - Fetched CodeSnippet.
+ Id: 5, Code: Snippet #5, Date: 04-25-2024 20:23:41
+20:23:54.952 [http-nio-8082-exec-9] INFO  platform.controller.ApiController - Latest CodeSnippets fetched
+20:23:54.958 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Entered displayLatestWebCodeSnippets method
+20:23:54.959 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #14, Timestamp: 04-25-2024 20:23:42.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #13, Timestamp: 04-25-2024 20:23:42.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #12, Timestamp: 04-25-2024 20:23:42.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #11, Timestamp: 04-25-2024 20:23:42.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #10, Timestamp: 04-25-2024 20:23:42.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #9, Timestamp: 04-25-2024 20:23:42.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #8, Timestamp: 04-25-2024 20:23:42.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #7, Timestamp: 04-25-2024 20:23:41.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #6, Timestamp: 04-25-2024 20:23:41.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet with properties: Code: Snippet #5, Timestamp: 04-25-2024 20:23:41.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #14, Timestamp: 04-25-2024 20:23:42.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #13, Timestamp: 04-25-2024 20:23:42.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #12, Timestamp: 04-25-2024 20:23:42.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #11, Timestamp: 04-25-2024 20:23:42.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #10, Timestamp: 04-25-2024 20:23:42.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #9, Timestamp: 04-25-2024 20:23:42.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #8, Timestamp: 04-25-2024 20:23:42.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #7, Timestamp: 04-25-2024 20:23:41.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #6, Timestamp: 04-25-2024 20:23:41.
+20:23:54.960 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Fetched code snippet DTO with properties: Code: Snippet #5, Timestamp: 04-25-2024 20:23:41.
+20:23:54.961 [http-nio-8082-exec-10] INFO  platform.controller.WebController - Exiting displayLatestWebCodeSnippets method
+20:23:55.014 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+20:23:55.014 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+20:23:55.015 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.

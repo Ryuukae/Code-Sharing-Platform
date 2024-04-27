@@ -1,8 +1,8 @@
-GET http://localhost:8081/api/code/1
+GET http://localhost:8082/api/code/1
 Accept: application/json
 
 ###
-POST http://localhost:8081/api/code/new
+POST http://localhost:8082/api/code/new
 Content-Type: application/json
 
 {
@@ -10,18 +10,18 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8081/api/code/latest
+GET http://localhost:8082/api/code/latest
 Accept: application/json
 
 
 ###
-GET http://localhost:8081/code/1
+GET http://localhost:8082/code/1
 Accept: application/json
 
 ###
-GET http://localhost:8081/code/new
+GET http://localhost:8082/code/new
 Accept: application/json
 
 ###
-GET http://localhost:8081/code/latest
+GET http://localhost:8082/code/latest
 Accept: application/json

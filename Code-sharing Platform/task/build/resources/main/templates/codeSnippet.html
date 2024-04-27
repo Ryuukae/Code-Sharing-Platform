@@ -3,9 +3,13 @@
     <meta charset="UTF-8">
     <title>Code</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet"
+          href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/default.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
-<pre id="code_snippet" th:text="${code}"></pre>
+<pre id="code_snippet"><code th:text="${code}"></code></pre>
 <span id="load_date" th:text="${timestamp}"></span>
 </body>
 </html>

@@ -7,29 +7,52 @@ import org.slf4j.LoggerFactory;
 
 public class CodeSnippetDto {
 
+	// Create a Logger instance for this class
 	private static final Logger logger = LoggerFactory.getLogger(CodeSnippetDto.class);
 
+	// JSON property "code"
 	@JsonProperty("code")
 	private String code;
+
+	// JSON property "date" with a custom "MM-dd-yyyy HH:mm:ss" pattern format
 	@JsonProperty("date")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy HH:mm:ss")
 	private String timestamp;
 
-	// generate constructor, getters, and setters
+	// Constructor
 	public CodeSnippetDto(String code, String timestamp) {
+		// Assign values
 		this.code = code;
 		this.timestamp = timestamp;
 
-		logger.debug("CodeSnippetDto object created with code: {} and timestamp: {}", code, timestamp);
+		// Log a debug message indicating that the constructor has run successfully with the given parameters
+		logger.debug("Enter: CodeSnippetDto constructor. Parameters: code = {}, timestamp = {}", code, timestamp);
+		logger.debug("Exit: CodeSnippetDto constructor");
 	}
 
+	// Getter for "code" field with debug logging
 	public String getCode() {
-		logger.debug("getCode() called, returning: {}", code);
-		return code;
+		// Log entry to method
+		logger.debug("Enter: getCode()");
+
+		String toReturn = this.code;
+
+		// Log what we are returning and exit the method
+		logger.debug("Exit: getCode(), returning: {}", toReturn);
+
+		return toReturn;
 	}
 
+	// Getter for "timestamp" field with debug logging
 	public String getTimestamp() {
-		logger.debug("getTimestamp() called, returning: {}", timestamp);
-		return timestamp;
+		// Log entry to method
+		logger.debug("Enter: getTimestamp()");
+
+		String toReturn = this.timestamp;
+
+		// Log what we are returning and exit the method
+		logger.debug("Exit: getTimestamp(), returning: {}", toReturn);
+
+		return toReturn;
 	}
 }
