@@ -3,18 +3,6 @@
 <head>
     <title>Latest</title>
     <style>
-        .code-container {
-            font-family: Baskerville, serif;
-            box-sizing: border-box;
-            border: 1px solid silver;
-            font-weight: 100;
-            font-size: 13px;
-            margin: 0;
-            width: 80%;
-            text-align: left;
-            background: #333;
-        }
-
         .date-text {
             font-weight: 100;
             padding: 1px;
@@ -38,26 +26,26 @@
             text-align: left;
             font-weight: 100;
             color: #FF6E6E;
+            border: 1px solid #FFF;
+            display: inline-block; /* Add this line */
+            padding: 2px;
         }
-
     </style>
 </head>
 <body>
 <div>
-
     <#list snippetDtos as snippetDto>
-
-
         <tr>
             <td>
-                <pre class="code-text"><code>${snippetDto.code}</code></pre>
+                <span class="date-text">${snippetDto.timestamp}</span>
             </td>
-            <td><span class="date-text">${snippetDto.timestamp}</span></td>
+            <br>
+            <td>
+                <pre class="code-text"><code>${snippetDto.codeSnippet}</code></pre>
+            </td>
         </tr>
-
-
+        <br><br>
     </#list>
 </div>
-
 </body>
 </html>

@@ -3,13 +3,18 @@ package platform.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import platform.model.CodeSnippet;
-import platform.repositories.CodeSnippetRepository;
+import platform.repository.CodeSnippetRepository;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class CodeSnippetService {
@@ -25,21 +30,8 @@ public class CodeSnippetService {
 		this.codeSnippetRepository = codeSnippetRepository;
 		// Initializing ID for the last added code snippet
 		logger.info("Initializing CodeSnippetService");
-		initializeLastId();
 	}
 
-	// Method loads the ID of the last added snippet into memory
-	private void initializeLastId() {
-		logger.debug("Initializing lastId");
-		CodeSnippet lastSnippet = codeSnippetRepository.findTopByOrderByIdDesc();
-		if (lastSnippet != null) {
-			CodeSnippet.setLastId(new AtomicInteger(lastSnippet.getId()));
-			logger.debug("lastId initialized to {}", lastSnippet.getId());
-		} else {
-			logger.debug("No snippets found, lastId initialized to 0");
-		}
-		logger.info("LastId initialization completed");
-	}
 
 	// Method for fetching all snippets
 	public List<CodeSnippet> getAllCodeSnippets() {
@@ -55,36 +47,69 @@ public class CodeSnippetService {
 	public void saveCodeSnippet(CodeSnippet codeSnippet) {
 		logger.info("Entering 'saveCodeSnippet' method, saving: {}", codeSnippet);
 		codeSnippetRepository.save(codeSnippet);
-		logger.info("CodeSnippet saved successfully, exiting 'saveCodeSnippet' method");
+		logger.info("CodeSnippet with ID {} saved successfully, exiting 'saveCodeSnippet' method", codeSnippet.getId());
+	}
+
+	// Delete a CodeSnippet from the repository
+	public void delete(CodeSnippet codeSnippet) {
+		logger.info("Entering 'delete' method, deleting: {}", codeSnippet);
+		codeSnippetRepository.delete(codeSnippet);
+		logger.info("CodeSnippet deleted successfully, exiting 'delete' method");
 	}
 
 	// Fetch a CodeSnippet by its ID
-	public CodeSnippet getCodeSnippetById(int id) {
+	public CodeSnippet getCodeSnippetById(UUID id) {
 		logger.info("Entering 'getCodeSnippetById' method");
 		logger.debug("Getting code snippet by ID: {}", id);
-		CodeSnippet snippet = codeSnippetRepository.findById(id).orElse(null);
-		logger.debug("Code snippet found for ID {}: {}", id, snippet);
-		logger.info("Exiting 'getCodeSnippetById' method");
-		return snippet;
+		Optional<CodeSnippet> snippetOptional = codeSnippetRepository.findById(id);
+		if (snippetOptional.isPresent()) {
+			logger.debug("Code snippet found for ID {}: {}", id, snippetOptional.get());
+			logger.info("Exiting 'getCodeSnippetById' method");
+			return snippetOptional.get();
+		} else {
+			logger.error("Code snippet not found for ID: {}", id);
+			return null; // or throw an exception
+		}
 	}
 
-	// Add a new CodeSnippet, save it to the repository and return it with a new ID
-	public CodeSnippet addCodeSnippet(CodeSnippet snippet) {
-		logger.info("Entering 'addCodeSnippet' method");
-		logger.debug("Adding a new code snippet: {}", snippet);
-		snippet = codeSnippetRepository.save(snippet);
-		logger.info("Added new code snippet with ID: {}", snippet.getId());
-		logger.info("Exiting 'addCodeSnippet' method");
-		return snippet;
-	}
 
 	// Fetch the 10 most recent CodeSnippets
 	public List<CodeSnippet> getLatest10CodeSnippets() {
 		logger.info("Entering 'getLatest10CodeSnippets' method");
-		logger.debug("Getting the latest code snippets");
-		List<CodeSnippet> snippets = codeSnippetRepository.findTop10ByOrderByIdDesc(PageRequest.of(0, 10));
-		logger.debug("Returning the latest code snippets: {}", snippets);
+		logger.info("Getting the latest code snippets");
+		PageRequest pageRequest = PageRequest.of(0, 10); // 0 means the first page, 10 is the size of page.
+		Page<CodeSnippet> snippets = codeSnippetRepository.findByTimeLessThanEqualAndViewsLessThanEqualOrderByTimestampDesc(0, 0, pageRequest);
+		// Now you can retrieve the content from the Page object
+		List<CodeSnippet> snippetList = snippets.getContent();
+		logger.info("Returning the latest code snippets: {}", snippets);
 		logger.info("Exiting 'getLatest10CodeSnippets' method");
-		return snippets;
+		return snippetList;
 	}
+
+	public void checkTime(CodeSnippet codeSnippet) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
+
+		// Parse timestamp to LocalDateTime
+		LocalDateTime start = LocalDateTime.parse(codeSnippet.getTimestamp(), formatter);
+
+		// Get current LocalDateTime
+		LocalDateTime now = LocalDateTime.now();
+
+		// Convert time to a Duration object and add to start
+		Duration duration = Duration.ofSeconds(codeSnippet.getTime());
+		LocalDateTime combined = start.plus(duration);
+
+		// Check if now has passed the combined time
+		if (combined.isAfter(now)) {
+			// If now has not passed, update time field to reflect the amount of seconds left
+			Duration remaining = Duration.between(now, combined);
+			codeSnippet.setTime((int) remaining.getSeconds());
+		} else {
+			// If now is passed the combined time, delete snippet
+			codeSnippetRepository.delete(codeSnippet);
+		}
+
+	}
+
+
 }

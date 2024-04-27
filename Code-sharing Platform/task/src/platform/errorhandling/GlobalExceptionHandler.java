@@ -19,6 +19,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	// Logger instance using slf4j
 	private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
+
 	// This method handles all exceptions not specifically dealt with by other exception handlers in this class
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<Object> defaultExceptionHandler(Exception ex, HttpServletRequest request) {

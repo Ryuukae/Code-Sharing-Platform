@@ -14,6 +14,7 @@ import platform.model.CodeSnippet;
 import platform.service.CodeSnippetService;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Controller
@@ -31,29 +32,30 @@ public class WebController {
 		logger.info("WebController initialized.");
 	}
 
-	@GetMapping("/{id}")
-	public ModelAndView displayCodeSnippetById(@PathVariable int id, Model model) {
+	@GetMapping("/{UUID}")
+	public ModelAndView displayCodeSnippetById(@PathVariable UUID UUID, Model model) {
 
 		// Logging the beginning of displayCodeSnippetById method
 		logger.info("Entered displayCodeSnippetById method");
 
 		try {
-			CodeSnippet snippet = codeSnippetService.getCodeSnippetById(id);
+			CodeSnippet snippet = codeSnippetService.getCodeSnippetById(UUID);
 
 			// Logging the fetched code snippet and its properties
 			logger.info("Fetched code snippet with properties: Code: {}, Timestamp: {}.", snippet.getCode(), snippet.getTimestamp());
 
 			model.addAttribute("code", snippet.getCode());
 			model.addAttribute("timestamp", snippet.getTimestamp());
+
+			// Logging the end of displayCodeSnippetById method
+			logger.info("Exiting displayCodeSnippetById method");
+
+			return new ModelAndView("codeSnippetView");
 		} catch (Exception e) {
-			logger.error("Error getting code snippet by ID: {}", id, e);
+			logger.error("Error getting code snippet by ID: {}", UUID, e);
 			return null;
 		}
 
-		// Logging the end of displayCodeSnippetById method
-		logger.info("Exiting displayCodeSnippetById method");
-
-		return new ModelAndView("codeSnippet");
 	}
 
 	@GetMapping("/new")
@@ -65,7 +67,7 @@ public class WebController {
 		// Logging the end of displayNewCodeSnippetForm method
 		logger.info("Exiting displayNewCodeSnippetForm method");
 
-		return new ModelAndView("newCodeSnippet");
+		return new ModelAndView("newCodeSnippetView");
 	}
 
 	@GetMapping(value = "/latest")
@@ -75,26 +77,33 @@ public class WebController {
 		logger.info("Entered displayLatestWebCodeSnippets method");
 
 		try {
-			List<CodeSnippet> snippets = codeSnippetService.getLatest10CodeSnippets();
+			List<CodeSnippet> latestSnippets = codeSnippetService.getLatest10CodeSnippets();
 
-			if (snippets == null || snippets.isEmpty()) {
-				logger.warn("No code snippets found");
+			if (latestSnippets == null || latestSnippets.isEmpty()) {
+				logger.warn("No code latestSnippets found");
 				return new ModelAndView("errorPage");
 			}
 
 			// Logging each fetched Snippet
-			snippets.forEach(snippet -> logger.info("Fetched code snippet with properties: Code: {}, Timestamp: {}.", snippet.getCode(), snippet.getTimestamp()));
+			latestSnippets.forEach(snippet -> logger.info("Fetched code snippet with the following properties:\nId: {},\nCode: {}," +
+					                                              "\nTimestamp: {}," +
+					                                              "\nTime: {},\nViews: {}", snippet.getId(), snippet.getCode(), snippet.getTimestamp(), snippet.getTime(), snippet.getViews()));
+
 
 			// Debug logging for fetched Snippets
-			logger.debug("Snippets: {}", snippets);
+			logger.debug("Snippets: {}", latestSnippets);
 
-			List<CodeSnippetDto> snippetDtos = snippets.stream()
-					                                   .map(snippet -> new CodeSnippetDto(snippet.getCode(), snippet.getTimestamp()))
+			List<CodeSnippetDto> snippetDtos = latestSnippets.stream()
+					                                   .map(snippet -> new CodeSnippetDto(snippet.getId(), snippet.getCode(),
+							                                   snippet.getTimestamp(), snippet.getTime(), snippet.getViews()))
 					                                   .collect(Collectors.toList());
 
-			// Logging each created DTO
-			snippetDtos.forEach(snippetDto -> logger.info("Fetched code snippet DTO with properties: Code: {}, Timestamp: {}.",
-					snippetDto.getCode(), snippetDto.getTimestamp()));
+			// Logging each created DTO object
+			snippetDtos.forEach(snippetDto -> logger.info("Created code snippetDto DTO object with the following properties:\nId: {},\nCode: " +
+					                                              "{},\nTimestamp: {}," +
+					                                              "\nTime: {},\nViews: {}", snippetDto.getId(),
+					snippetDto.getCodeSnippet(), snippetDto.getTimestamp(), snippetDto.getTime(), snippetDto.getViews()));
+
 
 			// Debug logging for created DTOs
 			logger.debug("SnippetDtos: {}", snippetDtos);
