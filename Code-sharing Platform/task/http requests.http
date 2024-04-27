@@ -1,27 +1,50 @@
-GET http://localhost:8082/api/code/1
-Accept: application/json
-
-###
-POST http://localhost:8082/api/code/new
+POST http://localhost:8083/api/code/new
 Content-Type: application/json
 
 {
-  "code": "<newcode>"
+  "code": "<newcode1>",
+  "time": 0,
+  "views": 0
 }
 
 ###
-GET http://localhost:8082/api/code/latest
+POST http://localhost:8083/api/code/new
+Content-Type: application/json
+
+{
+  "code": "<newcode2>",
+  "time": 0,
+  "views": 3
+}
+
+###
+POST http://localhost:8083/api/code/new
+Content-Type: application/json
+
+{
+  "code": "<newcode3>",
+  "time": 30,
+  "views": 0
+}
+
+###
+GET http://localhost:8083/api/code/74739ca9-7607-4535-b5bd-6aadd6ecae5b
+
+###
+GET http://localhost:8083/api/code/latest
 Accept: application/json
 
 
 ###
-GET http://localhost:8082/code/1
+GET http://localhost:8083/code/1
 Accept: application/json
 
 ###
-GET http://localhost:8082/code/new
+GET http://localhost:8083/code/new
 Accept: application/json
 
 ###
-GET http://localhost:8082/code/latest
+GET http://localhost:8083/code/latest
 Accept: application/json
+
+###

@@ -1,17 +1,19 @@
 package platform.controller;
 
+import org.hibernate.service.spi.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import platform.dto.CodeSnippetDto;
 import platform.model.CodeSnippet;
 import platform.service.CodeSnippetService;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 // This is a REST Controller Class
 @RestController
@@ -33,65 +35,91 @@ public class ApiController {
 
 	// Get mapping for accessing a specific code snippet by ID
 	@GetMapping(value = "/api/code/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<CodeSnippet> getApiCodeSnippetById(@PathVariable int id) {
-		// Debug log for start of method execution
-		logger.debug("Start getting CodeSnippet with id {}", id);
+	public ResponseEntity<?> getApiCodeSnippetById(@PathVariable String id) {
+		try {
+			UUID uuid = UUID.fromString(id);
+			CodeSnippet snippet = codeSnippetService.getCodeSnippetById(uuid);
 
-		// Fetching the code snippet using the service
-		CodeSnippet snippet = codeSnippetService.getCodeSnippetById(id);
-		if (snippet == null) {
-			// Error log when the code snippet is not found
-			logger.error("CodeSnippet with id {} not found", id);
-			return ResponseEntity.notFound().build();
+
+			logger.debug("Entering getApiCodeSnippetById method...");
+			logger.debug("Getting CodeSnippet with id {}...", id);
+			//Checking whether the snippet instance is null
+			if (snippet == null) {
+				logger.error("CodeSnippet with id {} not found", id);
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body("CodeSnippet with id: " + id + " not found");
+			}
+
+			int views = snippet.getViews();
+			if (views > 1) {
+				snippet.setViews(views - 1);
+				codeSnippetService.saveCodeSnippet(snippet);
+				logger.info("Decreased view count for CodeSnippet with id {}", id);
+			} else if (views == 1) {
+				codeSnippetService.delete(snippet);
+				logger.info("Deleted CodeSnippet with id {} as view count reached 0", id);
+			}
+
+			codeSnippetService.checkTime(snippet);
+			logger.info("Exiting getApiCodeSnippetById method...");
+
+			return ResponseEntity.ok(snippet);
+		} catch (IllegalArgumentException e) {
+			logger.error("Invalid UUID format: {}", id);
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid UUID format: " + id);
 		}
-		// Success log indicating the fetching of the code snippet
-		logger.info("CodeSnippet with id {} has been fetched successfully. Code: {}, Date: {}",
-				id, snippet.getCode(), snippet.getTimestamp());
-
-		return ResponseEntity.ok(snippet);
 	}
+
 
 	// Post mapping for creating a new code snippet
 	@PostMapping(value = "/api/code/new", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Map<String, String>> createCodeSnippet(@RequestBody Map<Object, Object> requestBody) {
+	public ResponseEntity<Map<Object, Object>> createCodeSnippet(@RequestBody Map<Object, Object> requestBody) {
 		// Extracting code from request body
 		String newCode = (String) requestBody.get("code");
+		try {
 
-		// Debug log indicating start of creating new code snippet
-		logger.debug("Creating new CodeSnippet with code {}", newCode);
 
-		// Creating new code snippet and saving it using the service
-		CodeSnippet newSnippet = new CodeSnippet(newCode);
-		codeSnippetService.saveCodeSnippet(newSnippet);
+			int time = (int) requestBody.get("time");
+			int views = (int) requestBody.get("views");
 
-		// Preparing response with the id of the newly created snippet
-		Map<String, String> response = new HashMap<>();
-		response.put("id", String.valueOf(newSnippet.getId()));
+			// Debug log indicating start of creating new code snippet
+			logger.debug("Creating new CodeSnippet...");
 
-		// Success log indicating the successful creation of a new code snippet
-		logger.info("New CodeSnippet with id {} has been added. Code: {}, Date: {}",
-				newSnippet.getId(), newSnippet.getCode(), newSnippet.getTimestamp());
+			// Creating new code snippet and saving it using the service
+			CodeSnippet newSnippet = new CodeSnippet(newCode, time, views);
+			codeSnippetService.saveCodeSnippet(newSnippet);
 
-		return ResponseEntity.ok(response);
+			// Preparing response with the id of the newly created snippet
+			Map<Object, Object> response = new HashMap<>();
+			response.put("id", String.valueOf(newSnippet.getId()));
+			return ResponseEntity.ok(response);
+		} catch (NumberFormatException e) {
+			logger.error("Invalid time or views format: {}", e.getMessage());
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new HashMap<>());
+		}
 	}
 
-	// Get mapping for getting the latest code snippets
 	@GetMapping("/api/code/latest")
-	@ResponseBody
-	public Object getApiLatestCodeSnippets() {
-		// Debug log indicating start of fetching latest code snippets
-		logger.debug("Fetching latest CodeSnippets via the codeSnippetService");
-
-		// Fetching latest code snippets using the service
-		List<CodeSnippet> latestSnippets = codeSnippetService.getLatest10CodeSnippets();  // updated to new method
-
-		// Logging each fetched code snippet
-		latestSnippets.forEach(snippet -> logger.info("Fetched CodeSnippet.\n Id: {}, Code: {}, Date: {}",
-				snippet.getId(), snippet.getCode(), snippet.getTimestamp()));
-
-		// Success log indicating completion of fetching latest code snippets
-		logger.info("Latest CodeSnippets fetched");
-
-		return latestSnippets;
+	public ResponseEntity<List<CodeSnippetDto>> displayLatestAPICodeSnippets() {
+		logger.info("Fetching latest CodeSnippets via the codeSnippetService");
+		try {
+			List<CodeSnippet> latestSnippets = codeSnippetService.getLatest10CodeSnippets();
+			if (latestSnippets == null) {
+				logger.error("Error occurred while fetching latest code snippets -- NullPointerException: latestSnippets is null");
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
+			List<CodeSnippetDto> response = new ArrayList<>();
+			for (CodeSnippet snippet : latestSnippets) {
+				response.add(new CodeSnippetDto(snippet.getId(), snippet.getCode(), snippet.getTimestamp(), snippet.getTime(), snippet.getViews()));
+			}
+			return new ResponseEntity<>(response, HttpStatus.OK);
+		} catch (DataAccessException e) {
+			logger.error("Error occurred while fetching latest code snippets -- DataAccessException", e);
+			System.out.println("Error occurred while fetching latest code snippets -- DataAccessException: " + e.getMessage());
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		} catch (ServiceException e) {
+			logger.error("Error occurred while fetching latest code snippets -- ServiceException", e);
+			System.out.println("Error occurred while fetching latest code snippets -- ServiceException: " + e.getMessage());
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 }
