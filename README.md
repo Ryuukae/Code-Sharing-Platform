@@ -19,40 +19,6 @@ The platform provides the following features:
 - A service layer that contains the business logic for code snippet management.
 - An embedded static code snippet for demonstration purposes.
 
-## Project Structure
-
-The project is structured into the following packages:
-
-- `src/platform/controller`: Contains controllers for handling HTTP requests.
-  - `ApiController.java`: Handles API requests and returns JSON responses.
-  - `WebController.java`: Handles web interface requests and returns HTML responses.
-- `src/platform/errorhandling`: Contains the global exception handler for the application.
-  - `GlobalExceptionHandler.java`: Manages exceptions across controllers.
-- `src/platform/model`: Contains the data models for the application.
-  - `CodeSnippet.java`: Represents the structure of a code snippet.
-- `src/platform/service`: Contains the service logic for code snippet operations.
-  - `CodeSnippetService.java`: Manages retrieval and storage of code snippets.
-- `src/resources`: Holds the application's configuration properties.
-- `test`: Contains tests for validating the application's functionality.
-
-## Configuration
-
-Configuration settings are located in the `application.properties` file, which includes:
-
-- Server port configuration.
-- Logging level and file output settings.
-- Thymeleaf template locations.
-
-## Setup
-
-To set up the platform, clone the repository and import it as a Maven project into an IDE. Ensure Java and Maven are installed on the system.
-
-Start the application with:
-
-```shell
-mvn spring-boot:run
-```
-
 ## Endpoints
 
 The application exposes the following endpoints:
