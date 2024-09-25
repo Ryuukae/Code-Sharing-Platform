@@ -1,6 +1,6 @@
-![Code-Sharing-Platform](https://github.com/user-attachments/assets/9effa9d5-8985-4f1a-a24c-42dbe80450f7)
-
 # Code Sharing Platform
+
+![Code-Sharing-Platform](https://github.com/user-attachments/assets/9effa9d5-8985-4f1a-a24c-42dbe80450f7)
 
 ## About
 
